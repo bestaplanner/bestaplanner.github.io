@@ -380,19 +380,20 @@ var TextureSelector = function (blueprint3d, sideMenu) {
 	  var modelUrl =  $(this).attr("model-name");
 	  var itemsArray = blueprint3d.model.scene.items;
 	  var position;
+	  var chk;
 	 //if(ContextMenu.selectedItem ==halfEdge || ContextMenu.selectedItem ==room ){
 	  //currentTarget.setTexture(textureUrl, textureStretch, textureScale);
-  //}else{
+    //}else{
 	  for (var i=0; i < itemsArray.length; i++) {
 			if (itemsArray[i].selected) {
 				currentTarget = itemsArray[i];
 				position = itemsArray[i].position;
 				//console.log("position", position);
-				
+				chk = true;
 			}
 		}
-				
-			var metadata = {
+	  if(chk == true){
+				var metadata = {
 				itemName: "60x20x38 cm",
 				resizable: true,
 				modelUrl: modelUrl,
@@ -401,7 +402,9 @@ var TextureSelector = function (blueprint3d, sideMenu) {
 		currentTarget.remove();
 	    blueprint3d.model.scene.addItem(itemType, modelUrl, metadata,position);
 	    //currentTarget.selected = true;
-	    
+	 }else{
+			currentTarget.setTexture(textureUrl, textureStretch, textureScale);
+		}				
       e.preventDefault();
     });
   }
