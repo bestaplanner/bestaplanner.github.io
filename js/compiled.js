@@ -566,6 +566,12 @@ var BP3D;
             /** intersection has attributes point (vec3) and object (THREE.Mesh) */
             Item.prototype.clickPressed = function (intersection) {
                 this.dragOffset.copy(intersection.point).sub(this.position);
+				this.geometry.boundingBox.color = 0xff0000;
+				this.geometry.boundingBox.backgroundColor = 0x4286f4;
+				this.geometry.boundingBox.borderColor = 0xff0000;
+				this.geometry.boundingBox.visible = true;
+				this.geometry.boundingBox.borderBottomWidth = 5;
+				this.geometry.boundingBox.borderLeftWidth = 5;
             };
             ;
             /** */
@@ -573,6 +579,12 @@ var BP3D;
                 if (intersection) {
                     this.moveToPosition(intersection.point.sub(this.dragOffset), intersection);
                 }
+				this.geometry.boundingBox.backgroundColor = 0x4286f4;
+				
+				this.geometry.boundingBox.borderColor = 0xff0000;
+				this.geometry.boundingBox.visible = true;
+				this.geometry.boundingBox.borderBottomWidth = 5;
+				this.geometry.boundingBox.borderLeftWidth = 5;
             };
             ;
             /** */
@@ -2242,14 +2254,43 @@ var BP3D;
                 }
                 else {
                     if (vec3.y < this.sizeY / 2.0 + tolerance) {
-                        vec3.y = this.sizeY / 2.0 + tolerance;
+                        vec3.y = this.position.y; // keep it on the floor!//this.sizeY / 2.0 + tolerance;
                     }
                     else if (vec3.y > edge.height - this.sizeY / 2.0 - tolerance) {
                         vec3.y = edge.height - this.sizeY / 2.0 - tolerance;
                     }
                 }
-                vec3.z = this.getWallOffset();
-                vec3.applyMatrix4(edge.invInteriorTransform);
+				if (!this.isValidPosition(vec3)) {
+					vec3.z = this.getWallOffset();
+				}
+				else{
+					this.position.copy(vec3);
+				}
+				if (!this.isValidPosition(vec3)) {
+					vec3.applyMatrix4(edge.invInteriorTransform);
+				}else{
+					this.position.copy(vec3);  
+				}
+                
+            };
+			
+			/** */
+            WallItem.prototype.isValidPosition = function (vec3) {
+                var corners = this.getCorners('x', 'z', vec3);
+                // check if we are in a room
+                var rooms = this.model.floorplan.getRooms();
+                var isInARoom = false;
+                for (var i = 0; i < rooms.length; i++) {
+                    if (BP3D.Core.Utils.pointInPolygon(vec3.x, vec3.z, rooms[i].interiorCorners) &&
+                        !BP3D.Core.Utils.polygonPolygonIntersect(corners, rooms[i].interiorCorners)) {
+                        isInARoom = true;
+                    }
+                }
+                if (!isInARoom) {
+                    //console.log('object not in a room');
+                    return false;
+                }
+                return true;
             };
             return WallItem;
         })(Items.Item);
@@ -2338,10 +2379,10 @@ var BP3D;
             __extends(WallFloorItem, _super);
             function WallFloorItem(model, metadata, geometry, material, position, rotation, scale) {
                 _super.call(this, model, metadata, geometry, material, position, rotation, scale);
-                this.boundToFloor = true;
+                //this.boundToFloor = true;
 	            }
             ;
-			 WallFloorItem.prototype.moveToPosition = function (vec3, intersection) {
+			 /* WallFloorItem.prototype.moveToPosition = function (vec3, intersection) {
 				//this.items.type
 				if (!this.isValidPosition(vec3)) {
                     this.changeWallEdge(intersection.object.edge);
@@ -2356,16 +2397,16 @@ var BP3D;
 					//Items.type = 2;
                 }
                 
-            };
+            }; */
 			/** */
-            WallFloorItem.prototype.placeInRoom = function () {
+            /* WallFloorItem.prototype.placeInRoom = function () {
                 if (!this.position_set) {
                     var center = this.model.floorplan.getCenter();
                     this.position.x = center.x;
                     this.position.z = center.z;
                     this.position.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y);
                 }
-            };
+            }; */
 			/** */
 			WallFloorItem.prototype.isValidPosition = function (vec3) {
                 var corners = this.getCorners('x', 'z', vec3);
@@ -3937,19 +3978,42 @@ var BP3D;
             function init() {
                 var light = new THREE.HemisphereLight(0xffffff, 0x888888, 1.1);
                 light.position.set(0, height, 0);
-                scene.add(light);
+                //scene.add(light);
+				// white spotlight shining from the side, casting a shadow
+
+				var spotLight = new THREE.SpotLight( 0xffffff );
+				spotLight.position.set( 850, 1000, 100);
+
+				spotLight.castShadow = true;
+
+				//spotLight.shadow.mapSize.width = 1024;
+				spotLight.shadowMapWidth = 1024;
+				spotLight.shadowMapHeight = 1024;
+				//spotLight.shadow.mapSize.height = 1024;
+				spotLight.angle = 0.8;
+				spotLight.shadowCameraFar  = 8000 ;//shadow.camera.near = 500;
+				//spotLight.shadow.camera.far = 4000;
+				spotLight.visible = true;
+				//spotLight.shadowCameraVisible = true;
+				spotLight.fov =  20;//shadow.camera.fov = 30;
+				scene.add( spotLight );
+				//scene.add( new THREE.CameraHelper( spotLight.shadow.camera ) ); 
+				
                 dirLight = new THREE.DirectionalLight(0xffffff, 0);
                 dirLight.color.setHSL(1, 1, 0.1);
                 dirLight.castShadow = true;
                 dirLight.shadowMapWidth = 1024;
                 dirLight.shadowMapHeight = 1024;
                 dirLight.shadowCameraFar = height + tol;
-                dirLight.shadowBias = -0.0001;
+				dirLight.angle = 180;
+                dirLight.shadowBias = 0.0001;
                 dirLight.shadowDarkness = 0.5;
                 dirLight.visible = true;
-                dirLight.shadowCameraVisible = false;
-                scene.add(dirLight);
+                //dirLight.shadowCameraVisible = true;
+				scene.add(dirLight);
                 scene.add(dirLight.target);
+				scene.add( new THREE.AmbientLight( 0x888888 ) );
+				
                 floorplan.fireOnUpdatedRooms(updateShadowCamera);
             }
             function updateShadowCamera() {
