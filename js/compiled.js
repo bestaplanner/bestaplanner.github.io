@@ -2382,31 +2382,35 @@ var BP3D;
                 //this.boundToFloor = true;
 	            }
             ;
-			 /* WallFloorItem.prototype.moveToPosition = function (vec3, intersection) {
+			 WallFloorItem.prototype.moveToPosition = function (vec3, intersection) {
 				//this.items.type
 				if (!this.isValidPosition(vec3)) {
-                    this.changeWallEdge(intersection.object.edge);
+                    /* this.changeWallEdge(intersection.object.edge);
 					this.boundMove(vec3);
 					this.position.copy(vec3);
-					this.redrawWall();
-					//Items.type = 1;
+					this.redrawWall(); */
+					//this.moveToPosition(vec3, intersection);
+					console.log("this", this);
+					
+		//currentTarget.remove();
+	    blueprint3d.model.scene.addItem("2", modelUrl, metadata,vec3);
                 }
                 else {
                     vec3.y = this.position.y; // keep it on the floor!
                     this.position.copy(vec3);
-					//Items.type = 2;
+					//FloorItem.moveToPosition(vec3, intersection);
                 }
                 
-            }; */
+            };
 			/** */
-            /* WallFloorItem.prototype.placeInRoom = function () {
+            WallFloorItem.prototype.placeInRoom = function () {
                 if (!this.position_set) {
                     var center = this.model.floorplan.getCenter();
                     this.position.x = center.x;
                     this.position.z = center.z;
                     this.position.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y);
                 }
-            }; */
+            };
 			/** */
 			WallFloorItem.prototype.isValidPosition = function (vec3) {
                 var corners = this.getCorners('x', 'z', vec3);

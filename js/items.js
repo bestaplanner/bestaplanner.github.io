@@ -6,7 +6,7 @@ $(document).ready(function() {
       "name" : "60x20x38 cm",
       "image" : "models/thumbnails/Grey Stained.JPG",
       "model" : "models/js/GreyStained.js",
-      "type" : "2"
+      "type" : "9"
     },
    {
       "name" : "60x20x38 cm",
