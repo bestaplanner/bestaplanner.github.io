@@ -6,7 +6,7 @@ $(document).ready(function() {
       "name" : "60x20x38 cm",
       "image" : "models/thumbnails/Grey Stained.JPG",
       "model" : "models/js/GreyStained.js",
-      "type" : "9"
+      "type" : "1"
     },
    {
       "name" : "60x20x38 cm",
@@ -18,7 +18,7 @@ $(document).ready(function() {
       "name" : "60x20x38 cm",
       "image" : "models/thumbnails/black brwon.JPG",
       "model" : "models/js/blackBrown.js",
-      "type" : "1"
+      "type" : "2"
     },
    {
       "name" : "60x20x38 cm",

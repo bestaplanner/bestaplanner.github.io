@@ -2299,35 +2299,37 @@ var BP3D;
                 var tolerance = 1;
                 var edge = this.currentWallEdge;
                 vec3.applyMatrix4(edge.interiorTransform);
-                if (vec3.x < this.sizeX / 2.0 + tolerance) {
+				
+               if (vec3.x < this.sizeX / 2.0 + tolerance) {
                     vec3.x = this.sizeX / 2.0 + tolerance;
+					//this.position.copy(vec3);
                 }
                 else if (vec3.x > (edge.interiorDistance() - this.sizeX / 2.0 - tolerance)) {
                     vec3.x = edge.interiorDistance() - this.sizeX / 2.0 - tolerance;
-                }
+                } 
+				
                 if (this.boundToFloor) {
                     vec3.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y) * this.scale.y + 0.01;
                 }
                 else {
                     if (vec3.y < this.sizeY / 2.0 + tolerance) {
-                        vec3.y = this.position.y; // keep it on the floor!//this.sizeY / 2.0 + tolerance;
+                        vec3.y = this.sizeY / 2.0 + tolerance;
+						/*if (this.isValidPosition(vec3)) {
+							vec3.y = this.position.y; // keep it on the floor!
+							//this.position.copy(vec3);
+						}*/
                     }
                     else if (vec3.y > edge.height - this.sizeY / 2.0 - tolerance) {
                         vec3.y = edge.height - this.sizeY / 2.0 - tolerance;
                     }
                 }
-				if (!this.isValidPosition(vec3)) {
+				/*if (!this.isValidPosition(vec3)) {
 					vec3.z = this.getWallOffset();
-				}
-				else{
+				}else*/
+				vec3.z = this.getWallOffset();
 					this.position.copy(vec3);
-				}
-				if (!this.isValidPosition(vec3)) {
-					vec3.applyMatrix4(edge.invInteriorTransform);
-				}else{
-					this.position.copy(vec3);  
-				}
                 
+                vec3.applyMatrix4(edge.invInteriorTransform);
             };
 			
 			/** */
