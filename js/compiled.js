@@ -2019,9 +2019,6 @@ var BP3D;
         /**
          * A Floor Item is an entity to be placed related to a floor.
          */
-		 var itemsArray = [];
-		 var previousPosition ;
-		 var isColliding = false;
         var FloorItem = (function (_super) {
             __extends(FloorItem, _super);
             function FloorItem(model, metadata, geometry, material, position, rotation, scale) {
@@ -2035,49 +2032,16 @@ var BP3D;
                     this.position.x = center.x;
                     this.position.z = center.z;
                     this.position.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y);
-					itemsArray.push(this);
-					var firstObject = this;
-					for (var j = 0; j < itemsArray.length; j++) {
-						var secondObject = itemsArray[j]
-						if(firstObject != secondObject){
-							var firstBB = new THREE.Box3().setFromObject(firstObject);
-							var secondBB = new THREE.Box3().setFromObject(secondObject);
-							isColliding = firstBB.isIntersectionBox(secondBB);
-							if(isColliding){
-								this.remove();
-							}
-						}
-						
-					}
                 }
             };
             ;
-			FloorItem.prototype.clickPressed = function (intersection) {
-                isColliding = false;
-				this.dragOffset.copy(intersection.point).sub(this.position);
-				previousPosition =  this.position.clone();;
-				
-				
-            };
             /** Take action after a resize */
             FloorItem.prototype.resized = function () {
                 this.position.y = this.halfSize.y;
             };
-			FloorItem.prototype.remove = function () {
-                this.scene.removeItem(this);
-				for (var j = 0; j < itemsArray.length; j++) {
-						if(this == itemsArray[j]){
-						   itemsArray.splice(j,1);
-						   break;
-						}
-						
-				}
-				
-            };
             /** */
             FloorItem.prototype.moveToPosition = function (vec3, intersection) {
                 // keeps the position in the room and on the floor
-				if(isColliding) return;
                 if (!this.isValidPosition(vec3)) {
                     this.showError(vec3);
                     return;
@@ -2100,27 +2064,7 @@ var BP3D;
                         isInARoom = true;
                     }
                 }
-				var firstObject = this;
-				for (var j = 0; j < itemsArray.length; j++) {
-						var secondObject = itemsArray[j]
-						if(firstObject != secondObject){
-							var firstBB = new THREE.Box3().setFromObject(firstObject);
-							var secondBB = new THREE.Box3().setFromObject(secondObject);
-							isColliding = firstBB.isIntersectionBox(secondBB);
-							if(isColliding && previousPosition){
-								this.position.x = previousPosition.x;
-								this.position.z = previousPosition.z;
-								
-								vec3.x = secondObject.position.x;
-								vec3.z = secondObject.position.z;
-								break;
-							}
-						}
-						
-				}
-				
-				
-                if (!isInARoom || isColliding ) {
+                if (!isInARoom) {
                     //console.log('object not in a room');
                     return false;
                 }
@@ -2299,37 +2243,35 @@ var BP3D;
                 var tolerance = 1;
                 var edge = this.currentWallEdge;
                 vec3.applyMatrix4(edge.interiorTransform);
-				
-               if (vec3.x < this.sizeX / 2.0 + tolerance) {
+                if (vec3.x < this.sizeX / 2.0 + tolerance) {
                     vec3.x = this.sizeX / 2.0 + tolerance;
-					//this.position.copy(vec3);
                 }
                 else if (vec3.x > (edge.interiorDistance() - this.sizeX / 2.0 - tolerance)) {
                     vec3.x = edge.interiorDistance() - this.sizeX / 2.0 - tolerance;
-                } 
-				
+                }
                 if (this.boundToFloor) {
                     vec3.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y) * this.scale.y + 0.01;
                 }
                 else {
                     if (vec3.y < this.sizeY / 2.0 + tolerance) {
-                        vec3.y = this.sizeY / 2.0 + tolerance;
-						/*if (this.isValidPosition(vec3)) {
-							vec3.y = this.position.y; // keep it on the floor!
-							//this.position.copy(vec3);
-						}*/
+                        vec3.y = this.position.y; // keep it on the floor!//this.sizeY / 2.0 + tolerance;
                     }
                     else if (vec3.y > edge.height - this.sizeY / 2.0 - tolerance) {
                         vec3.y = edge.height - this.sizeY / 2.0 - tolerance;
                     }
                 }
-				/*if (!this.isValidPosition(vec3)) {
+				if (!this.isValidPosition(vec3)) {
 					vec3.z = this.getWallOffset();
-				}else*/
-				vec3.z = this.getWallOffset();
+				}
+				else{
 					this.position.copy(vec3);
+				}
+				if (!this.isValidPosition(vec3)) {
+					vec3.applyMatrix4(edge.invInteriorTransform);
+				}else{
+					this.position.copy(vec3);  
+				}
                 
-                vec3.applyMatrix4(edge.invInteriorTransform);
             };
 			
 			/** */
