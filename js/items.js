@@ -466,8 +466,8 @@
     }, 
     */
   ];
-  /* 
-  var itemsDiv = $("#items-wrapper")
+   
+  /*var itemsDiv = $("#items-wrapper")
   for (var i = 0; i < items.length; i++) {
     var item = items[i];
     var html = '<div class="col-xs-6 img_ht">' +
@@ -483,5 +483,4 @@
                 item.name +
                 '</a></div>';
     itemsDiv.append(html);
-  }
-}); */
+  }*/ 

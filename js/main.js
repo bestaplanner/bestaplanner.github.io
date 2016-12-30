@@ -337,11 +337,11 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
 
   // TODO: this doesn't really belong here
   function initItems() {
-	  $('.swiper-slide').click(function(){
+	  /*$('.swiper-slide').click(function(){
 
 		// navi
-		alert("tab clicked" + src);
-		/*var modelUrl = $(this).attr("/models/js/GreyStained.js");
+		alert("tab clicked");
+		var modelUrl = $(this).attr("/models/js/GreyStained.js");
 		var itemType = parseInt($(this).attr("1"));
 		var metadata = {
         itemName: $(this).attr("60x20x38 cm"),
@@ -355,10 +355,10 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
 	  
 
       blueprint3d.model.scene.addItem(itemType, modelUrl, metadata);
-      setCurrentState(scope.states.DEFAULT);*/
+      setCurrentState(scope.states.DEFAULT);
 
-		});
-     $("#add-items").find(".add-item").mousedown(function(e) {
+		});*/
+     $("#swiper .add-item").on("click", function(e) {
       var modelUrl = $(this).attr("model-url");
       var itemType = parseInt($(this).attr("model-type"));
       var metadata = {

@@ -13,10 +13,10 @@
           <%
             // repeat items 
             _.each(rc.data, function(v,key,arr){
-          %>
-
+          %>	  
+		  
             <div class="swiper-slide">
-              <a href="#">
+              <a href="#" class="add-item"  model-name= "<%= v.name %>" model-url= "<%= v.model %>" model-type= "<%= v.type %>">
                 <img src="<%= v.image %>" alt="" class="img-responsive">
                 <div style="font-size: 8px;color: #222;font-weight: 600;"><%= v.name %></div>
               </a>
