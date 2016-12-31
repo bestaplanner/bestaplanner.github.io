@@ -2019,6 +2019,9 @@ var BP3D;
         /**
          * A Floor Item is an entity to be placed related to a floor.
          */
+		 var itemsArray = [];
+		 var previousPosition ;
+		 var isColliding = false;
         var FloorItem = (function (_super) {
             __extends(FloorItem, _super);
             function FloorItem(model, metadata, geometry, material, position, rotation, scale) {
@@ -2032,16 +2035,49 @@ var BP3D;
                     this.position.x = center.x;
                     this.position.z = center.z;
                     this.position.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y);
+					itemsArray.push(this);
+					var firstObject = this;
+					for (var j = 0; j < itemsArray.length; j++) {
+						var secondObject = itemsArray[j]
+						if(firstObject != secondObject){
+							var firstBB = new THREE.Box3().setFromObject(firstObject);
+							var secondBB = new THREE.Box3().setFromObject(secondObject);
+							isColliding = firstBB.isIntersectionBox(secondBB);
+							if(isColliding){
+								this.remove();
+							}
+						}
+						
+					}
                 }
             };
             ;
+			FloorItem.prototype.clickPressed = function (intersection) {
+                isColliding = false;
+				this.dragOffset.copy(intersection.point).sub(this.position);
+				previousPosition =  this.position.clone();;
+				
+				
+            };
             /** Take action after a resize */
             FloorItem.prototype.resized = function () {
                 this.position.y = this.halfSize.y;
             };
+			FloorItem.prototype.remove = function () {
+                this.scene.removeItem(this);
+				for (var j = 0; j < itemsArray.length; j++) {
+						if(this == itemsArray[j]){
+						   itemsArray.splice(j,1);
+						   break;
+						}
+						
+				}
+				
+            };
             /** */
             FloorItem.prototype.moveToPosition = function (vec3, intersection) {
                 // keeps the position in the room and on the floor
+				if(isColliding) return;
                 if (!this.isValidPosition(vec3)) {
                     this.showError(vec3);
                     return;
@@ -2064,7 +2100,27 @@ var BP3D;
                         isInARoom = true;
                     }
                 }
-                if (!isInARoom) {
+				var firstObject = this;
+				for (var j = 0; j < itemsArray.length; j++) {
+						var secondObject = itemsArray[j]
+						if(firstObject != secondObject){
+							var firstBB = new THREE.Box3().setFromObject(firstObject);
+							var secondBB = new THREE.Box3().setFromObject(secondObject);
+							isColliding = firstBB.isIntersectionBox(secondBB);
+							if(isColliding && previousPosition){
+								this.position.x = previousPosition.x;
+								this.position.z = previousPosition.z;
+								
+								vec3.x = secondObject.position.x;
+								vec3.z = secondObject.position.z;
+								break;
+							}
+						}
+						
+				}
+				
+				
+                if (!isInARoom || isColliding ) {
                     //console.log('object not in a room');
                     return false;
                 }
@@ -2297,6 +2353,224 @@ var BP3D;
         Items.WallItem = WallItem;
     })(Items = BP3D.Items || (BP3D.Items = {}));
 })(BP3D || (BP3D = {}));
+var BP3D;
+(function (BP3D) {
+    var Items;
+    (function (Items) {
+        /**
+         * A Wall Item is an entity to be placed related to a wall.
+         */
+         var FrameItem = (function (_super) {
+            __extends(FrameItem, _super);
+            function FrameItem(model, metadata, geometry, material, position, rotation, scale) {
+                _super.call(this, model, metadata, geometry, material, position, rotation, scale);
+                /** The currently applied wall edge. */
+                this.currentWallEdge = null;
+                /* TODO:
+                   This caused a huge headache.
+                   HalfEdges get destroyed/created every time floorplan is edited.
+                   This item should store a reference to a wall and front/back,
+                   and grab its edge reference dynamically whenever it needs it.
+                 */
+                /** used for finding rotations */
+                this.refVec = new THREE.Vector2(0, 1.0);
+                /** */
+                this.wallOffsetScalar = 0;
+                /** */
+                this.sizeX = 0;
+                /** */
+                this.sizeY = 0;
+                /** */
+                this.addToWall = false;
+                /** */
+                this.boundToFloor = false;
+                /** */
+                this.frontVisible = false;
+                /** */
+                this.backVisible = false;
+                this.allowRotate = false;
+            }
+            ;
+            /** Get the closet wall edge.
+             * @returns The wall edge.
+             */
+            FrameItem.prototype.closestWallEdge = function () {
+                var wallEdges = this.model.floorplan.wallEdges();
+                var wallEdge = null;
+                var minDistance = null;
+                var itemX = this.position.x;
+                var itemZ = this.position.z;
+                wallEdges.forEach(function (edge) {
+                    var distance = edge.distanceTo(itemX, itemZ);
+                    if (minDistance === null || distance < minDistance) {
+                        minDistance = distance;
+                        wallEdge = edge;
+                    }
+                });
+                return wallEdge;
+            };
+            /** */
+            FrameItem.prototype.removed = function () {
+                if (this.currentWallEdge != null && this.addToWall) {
+                    BP3D.Core.Utils.removeValue(this.currentWallEdge.wall.items, this);
+                    this.redrawWall();
+                }
+            };
+            /** */
+            FrameItem.prototype.redrawWall = function () {
+                if (this.addToWall) {
+                    this.currentWallEdge.wall.fireRedraw();
+                }
+            };
+            /** */
+            FrameItem.prototype.updateEdgeVisibility = function (visible, front) {
+                if (front) {
+                    this.frontVisible = visible;
+                }
+                else {
+                    this.backVisible = visible;
+                }
+                this.visible = (this.frontVisible || this.backVisible);
+            };
+            /** */
+            FrameItem.prototype.updateSize = function () {
+                this.wallOffsetScalar = (this.geometry.boundingBox.max.z - this.geometry.boundingBox.min.z) * this.scale.z / 2.0;
+                this.sizeX = (this.geometry.boundingBox.max.x - this.geometry.boundingBox.min.x) * this.scale.x;
+                this.sizeY = (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y) * this.scale.y;
+            };
+            /** */
+            FrameItem.prototype.resized = function () {
+                if (this.boundToFloor) {
+                    this.position.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y) * this.scale.y + 0.01;
+                }
+                this.updateSize();
+                this.redrawWall();
+            };
+            /** */
+            FrameItem.prototype.placeInRoom = function () {
+                var closestWallEdge = this.closestWallEdge();
+                this.changeWallEdge(closestWallEdge);
+                this.updateSize();
+                if (!this.position_set) {
+                    // position not set
+                    var center = closestWallEdge.interiorCenter();
+                    var newPos = new THREE.Vector3(center.x, closestWallEdge.wall.height / 2.0, center.y);
+                    this.boundMove(newPos);
+                    this.position.copy(newPos);
+                    this.redrawWall();
+                }
+            };
+            ;
+            /** */
+            FrameItem.prototype.moveToPosition = function (vec3, intersection) {
+                this.changeWallEdge(intersection.object.edge);
+                this.boundMove(vec3);
+                this.position.copy(vec3);
+                this.redrawWall();
+            };
+            /** */
+            FrameItem.prototype.getWallOffset = function () {
+                return this.wallOffsetScalar;
+            };
+            /** */
+            FrameItem.prototype.changeWallEdge = function (wallEdge) {
+                if (this.currentWallEdge != null) {
+                    if (this.addToWall) {
+                        BP3D.Core.Utils.removeValue(this.currentWallEdge.wall.items, this);
+                        this.redrawWall();
+                    }
+                    else {
+                        BP3D.Core.Utils.removeValue(this.currentWallEdge.wall.onItems, this);
+                    }
+                }
+                // handle subscription to wall being removed
+                if (this.currentWallEdge != null) {
+                    this.currentWallEdge.wall.dontFireOnDelete(this.remove.bind(this));
+                }
+                wallEdge.wall.fireOnDelete(this.remove.bind(this));
+                // find angle between wall normals
+                var normal2 = new THREE.Vector2();
+                var normal3 = wallEdge.plane.geometry.faces[0].normal;
+                normal2.x = normal3.x;
+                normal2.y = normal3.z;
+                var angle = BP3D.Core.Utils.angle(this.refVec.x, this.refVec.y, normal2.x, normal2.y);
+                this.rotation.y = angle;
+                // update currentWall
+                this.currentWallEdge = wallEdge;
+                if (this.addToWall) {
+                    wallEdge.wall.items.push(this);
+                    this.redrawWall();
+                }
+                else {
+                    wallEdge.wall.onItems.push(this);
+                }
+            };
+            /** Returns an array of planes to use other than the ground plane
+             * for passing intersection to clickPressed and clickDragged */
+            FrameItem.prototype.customIntersectionPlanes = function () {
+                return this.model.floorplan.wallEdgePlanes();
+            };
+            /** takes the move vec3, and makes sure object stays bounded on plane */
+            FrameItem.prototype.boundMove = function (vec3) {
+                var tolerance = 1;
+                var edge = this.currentWallEdge;
+                vec3.applyMatrix4(edge.interiorTransform);
+				
+               if (vec3.x < this.sizeX / 2.0 + tolerance) {
+                    vec3.x = this.sizeX / 2.0 + tolerance;
+					//this.position.copy(vec3);
+                }
+                else if (vec3.x > (edge.interiorDistance() - this.sizeX / 2.0 - tolerance)) {
+                    vec3.x = edge.interiorDistance() - this.sizeX / 2.0 - tolerance;
+                } 
+				
+                if (this.boundToFloor) {
+                    vec3.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y) * this.scale.y + 0.01;
+                }
+                else {
+                    if (vec3.y < this.sizeY / 2.0 + tolerance) {
+                        vec3.y = this.sizeY / 2.0 + tolerance;
+						/*if (this.isValidPosition(vec3)) {
+							vec3.y = this.position.y; // keep it on the floor!
+							//this.position.copy(vec3);
+						}*/
+                    }
+                    else if (vec3.y > edge.height - this.sizeY / 2.0 - tolerance) {
+                        vec3.y = edge.height - this.sizeY / 2.0 - tolerance;
+                    }
+                }
+				/*if (!this.isValidPosition(vec3)) {
+					vec3.z = this.getWallOffset();
+				}else*/
+				vec3.z = this.getWallOffset();
+					this.position.copy(vec3);
+                
+                vec3.applyMatrix4(edge.invInteriorTransform);
+            };
+			
+			/** */
+            FrameItem.prototype.isValidPosition = function (vec3) {
+                var corners = this.getCorners('x', 'z', vec3);
+                // check if we are in a room
+                var rooms = this.model.floorplan.getRooms();
+                var isInARoom = false;
+                for (var i = 0; i < rooms.length; i++) {
+                    if (BP3D.Core.Utils.pointInPolygon(vec3.x, vec3.z, rooms[i].interiorCorners) &&
+                        !BP3D.Core.Utils.polygonPolygonIntersect(corners, rooms[i].interiorCorners)) {
+                        isInARoom = true;
+                    }
+                }
+                if (!isInARoom) {
+                    //console.log('object not in a room');
+                    return false;
+                }
+                return true;
+            };
+            return FrameItem;
+        })(Items.Item);
+        Items.FrameItem = FrameItem;
+    })(Items = BP3D.Items || (BP3D.Items = {}));
+})(BP3D || (BP3D = {}));
 /// <reference path="../../lib/three.d.ts" />
 /// <reference path="../model/model.ts" />
 /// <reference path="wall_item.ts" />
@@ -2487,7 +2761,8 @@ var BP3D;
             3: Items.InWallItem,
             7: Items.InWallFloorItem,
             8: Items.OnFloorItem,
-            9: Items.WallFloorItem
+            9: Items.WallFloorItem,
+			10: Items.FrameItem
         };
         /** Factory class to create items. */
         var Factory = (function () {
