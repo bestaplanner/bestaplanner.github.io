@@ -42,6 +42,35 @@ var CameraButtons = function(blueprint3d) {
     $("#move-right").dblclick(preventDefault);
     $("#move-up").dblclick(preventDefault);
     $("#move-down").dblclick(preventDefault);
+	loadproductDataXml();
+	loadDefinitionDataXml();
+  }
+function loadproductDataXml(){
+	  if (window.XMLHttpRequest)
+	  {
+		xmlhttp=new XMLHttpRequest();
+	  }
+	  else
+	  {
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.open("GET","xmls/product_data.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML;
+  }
+  function loadDefinitionDataXml(){
+	  if (window.XMLHttpRequest)
+	  {
+		xmlhttp=new XMLHttpRequest();
+	  }
+	  else
+	  {
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.open("GET","xmls/definition_data.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML;
+	
   }
 
   function preventDefault(e) {
