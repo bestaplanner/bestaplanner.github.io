@@ -8,11 +8,11 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  height: 100%;
-  background: whitesmoke;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background: whitesmoke;
 }
 
 div {
@@ -30,8 +30,11 @@ div {
 
 .sidebar {
   /*padding: 20px;*/
+  /*
   overflow-x: hidden;
   overflow-y: auto; 
+  */
+  overflow:hidden;
   border-right: 1px solid #eee;
 }
 
@@ -65,7 +68,7 @@ div {
 
 #loading-modal {
   position: absolute;
-  z-index: 20;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -107,13 +110,11 @@ div {
 }
 
 #camera-controls {
- bottom: 20px;
- text-align: right;
- position: absolute;
- padding: 0px 20px;
- width: 67%;
+     position: absolute;
+  top: 5px;
+  left: 10px;
+  padding: 0; 
 }
-
 #floorplanner-controls {
   position: absolute;
   left: 125px;
@@ -216,6 +217,7 @@ div {
 .popover {min-width:64% !important; margin-top:80px;}
 
 .plusBG {background-color:#BCBCBC !important; color: #fff !important; padding:10px;}
+
 
 .Login {
     margin: 10px 0px 0px 0px;
@@ -376,7 +378,15 @@ div.table-title {
 .width35 {width:35%;}
 
 
-.mT55 {margin-top:55px;}
+.main-row {
+    display: table;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    max-width: 1060px;
+    margin: 15px auto;
+    overflow: hidden;
+}
 
 .popover-content .nav-tabs {border-bottom: 0px !important;}
 
@@ -409,15 +419,12 @@ div.table-title {
     font-weight: 600;
 }
 
-.sidebar{
+.sidebar {
     display: table-cell;
     height: 100%;
     background: white;
-    margin: 10px 0 0;
-    border-left: 1px solid gainsboro;
-    border-top: 1px solid gainsboro;
+    border: 1px solid gainsboro;
 }
-
     .swiper-slide {
         text-align: center;
         font-size: 18px;
@@ -467,9 +474,14 @@ div.table-title {
     width:600px;
     height:250px;    
 }
-.main-wrapper{
-    width: 1060px !important;
-    padding: 6px 10px !important;
+.main-wrapper {
+
+    padding: 50px 0 0;
+    height: 100%;
+}
+.scroll-wrapper {
+    overflow: auto;
+    height: 100%;
 }
 .navbar-inverse .navbar-brand{
   padding:0 !important;
@@ -478,7 +490,7 @@ div.table-title {
     margin:7px 0 0 0;
 }
 #popoverContent2{
-  width: 710px;
+    width: 92%;
     right: 60px;
     position: absolute;
     background: #ffe255;
@@ -488,6 +500,7 @@ div.table-title {
     border: 1px solid whitesmoke;
     box-shadow: -2px 2px 2px silver;
     display: none;
+    z-index: 999;
 }
 #popoverContent2 .nav-tabs {
     border: none;
@@ -538,3 +551,25 @@ border: none;
 .btn .caret {
     margin-left: 20px;
 }
+
+.shopCart {font-size: 1.5em;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 0px;
+    float: left;
+    display: flex;
+    margin-right: 10px;}
+	
+	.cartTxt{padding: 5px 5px;
+    float: left;}
+	
+	.padT10 {padding-top:10px;}
+	.frameMes {color:#bbb; font-size:12px;}
+	.font12 {font-size:12px;}
+	.closeX {text-align:right; padding: 0px 8px 0px 0px;float:right}
+	.greyBGHead {padding-top:0px; background-color:#ccc; height:37px;}
+	.redTxt{color:#d60000;}
+	.totalBG1 {background-color:orange; color:#fff; padding:4px 6px 4px 6px; font-size:12px; float:right;}
+	.blackCircle {border-radius:50%; background-color:#000; width:18px; height:18px; margin-right:2%}
+	.greyCircle {border-radius:50%; background-color:#ddd; width:18px; height:18px; margin-right:2%}
+	.brownCircle {background-color:#aa8b6c; border-radius:50%; width:18px; height:18px; margin-right:2%}
