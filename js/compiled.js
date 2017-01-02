@@ -2144,6 +2144,9 @@ var BP3D;
         /**
          * A Wall Item is an entity to be placed related to a wall.
          */
+		  var itemsArray = [];
+		 var previousPosition ;
+		 var isColliding = false;
          var WallItem = (function (_super) {
             __extends(WallItem, _super);
             function WallItem(model, metadata, geometry, material, position, rotation, scale) {
@@ -2243,10 +2246,29 @@ var BP3D;
                     this.position.copy(newPos);
                     this.redrawWall();
                 }
+				itemsArray.push(this);
+					var firstObject = this;
+					for (var j = 0; j < itemsArray.length; j++) {
+						var secondObject = itemsArray[j]
+						if(firstObject != secondObject){
+							var firstBB = new THREE.Box3().setFromObject(firstObject);
+							var secondBB = new THREE.Box3().setFromObject(secondObject);
+							isColliding = firstBB.isIntersectionBox(secondBB);
+							if(isColliding){
+								this.remove();
+							}
+						}
+						
+					}
             };
             ;
             /** */
             WallItem.prototype.moveToPosition = function (vec3, intersection) {
+				if(isColliding) return;
+				if (!this.isValidPosition(vec3)) {
+                    this.showError(vec3);
+                    return;
+                }
                 this.changeWallEdge(intersection.object.edge);
                 this.boundMove(vec3);
                 this.position.copy(vec3);
@@ -2257,6 +2279,13 @@ var BP3D;
                 return this.wallOffsetScalar;
             };
             /** */
+			WallItem.prototype.clickPressed = function (intersection) {
+                isColliding = false;
+				this.dragOffset.copy(intersection.point).sub(this.position);
+				previousPosition =  this.position.clone();;
+				
+				
+            };
             WallItem.prototype.changeWallEdge = function (wallEdge) {
                 if (this.currentWallEdge != null) {
                     if (this.addToWall) {
@@ -2299,35 +2328,48 @@ var BP3D;
                 var tolerance = 1;
                 var edge = this.currentWallEdge;
                 vec3.applyMatrix4(edge.interiorTransform);
-                if (vec3.x < this.sizeX / 2.0 + tolerance) {
+				
+               if (vec3.x < this.sizeX / 2.0 + tolerance) {
                     vec3.x = this.sizeX / 2.0 + tolerance;
+					//this.position.copy(vec3);
                 }
                 else if (vec3.x > (edge.interiorDistance() - this.sizeX / 2.0 - tolerance)) {
                     vec3.x = edge.interiorDistance() - this.sizeX / 2.0 - tolerance;
-                }
+                } 
+				
                 if (this.boundToFloor) {
                     vec3.y = 0.5 * (this.geometry.boundingBox.max.y - this.geometry.boundingBox.min.y) * this.scale.y + 0.01;
                 }
                 else {
                     if (vec3.y < this.sizeY / 2.0 + tolerance) {
-                        vec3.y = this.position.y; // keep it on the floor!//this.sizeY / 2.0 + tolerance;
+                        vec3.y = this.sizeY / 2.0 + tolerance;
+						/*if (this.isValidPosition(vec3)) {
+							vec3.y = this.position.y; // keep it on the floor!
+							//this.position.copy(vec3);
+						}*/
                     }
                     else if (vec3.y > edge.height - this.sizeY / 2.0 - tolerance) {
                         vec3.y = edge.height - this.sizeY / 2.0 - tolerance;
                     }
                 }
-				if (!this.isValidPosition(vec3)) {
+				/*if (!this.isValidPosition(vec3)) {
 					vec3.z = this.getWallOffset();
-				}
-				else{
+				}else*/
+				vec3.z = this.getWallOffset();
 					this.position.copy(vec3);
-				}
-				if (!this.isValidPosition(vec3)) {
-					vec3.applyMatrix4(edge.invInteriorTransform);
-				}else{
-					this.position.copy(vec3);  
-				}
                 
+                vec3.applyMatrix4(edge.invInteriorTransform);
+            };
+			WallItem.prototype.remove = function () {
+                this.scene.removeItem(this);
+				for (var j = 0; j < itemsArray.length; j++) {
+						if(this == itemsArray[j]){
+						   itemsArray.splice(j,1);
+						   break;
+						}
+						
+				}
+				
             };
 			
 			/** */
@@ -2342,10 +2384,30 @@ var BP3D;
                         isInARoom = true;
                     }
                 }
+				
                 if (!isInARoom) {
                     //console.log('object not in a room');
-                    return false;
+                    //return false;
                 }
+				
+				var firstObject = this;
+				for (var j = 0; j < itemsArray.length; j++) {
+						var secondObject = itemsArray[j]
+						if(firstObject != secondObject){
+							var firstBB = new THREE.Box3().setFromObject(firstObject);
+							var secondBB = new THREE.Box3().setFromObject(secondObject);
+							isColliding = firstBB.isIntersectionBox(secondBB);
+							if(isColliding && previousPosition){
+								this.position.x = previousPosition.x;
+								this.position.z = previousPosition.z;
+								
+								vec3.x = secondObject.position.x;
+								vec3.z = secondObject.position.z;
+								return false;
+							}
+						}
+						
+				}
                 return true;
             };
             return WallItem;
