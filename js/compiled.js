@@ -3867,9 +3867,9 @@ var BP3D;
                 }
                 // filter by visible, if true
                 if (onlyVisible) {
-                    //intersections = BP3D.Core.Utils.removeIf(intersections, function (intersection) {
-                    //    return !intersection.object.visible;
-                    //});
+                    intersections = BP3D.Core.Utils.removeIf(intersections, function (intersection) {
+                      return !intersection.object.visible;
+                    });
                 }
                 // filter by normals, if true
                 if (filterByNormals) {
