@@ -1314,7 +1314,7 @@ var BP3D;
                 /** Wall thickness. */
                 this.thickness = BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallThickness);
                 /** Wall height. */
-                this.height = BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallHeight);
+                this.height =1000// BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallHeight);
                 /** Actions to be applied after movement. */
                 this.moved_callbacks = $.Callbacks();
                 /** Actions to be applied on removal. */
@@ -3858,6 +3858,7 @@ var BP3D;
                 recursive = recursive || false;
                 linePrecision = linePrecision || 20;
                 var direction = vector.sub(camera.position).normalize();
+				
                 var raycaster = new THREE.Raycaster(camera.position, direction);
                 raycaster.linePrecision = linePrecision;
                 var intersections;
@@ -5056,7 +5057,7 @@ var BP3D;
             function init() {
                 THREE.ImageUtils.crossOrigin = "";
                 domElement = scope.element.get(0); // Container
-                camera = new THREE.PerspectiveCamera(45, 1, 1, 10000);
+                camera = new THREE.PerspectiveCamera(60, 1, 1, 10000);
                 renderer = new THREE.WebGLRenderer({
                     antialias: true,
                     preserveDrawingBuffer: true // required to support .toDataURL()
