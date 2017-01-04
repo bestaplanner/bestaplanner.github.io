@@ -37,11 +37,18 @@ var CameraButtons = function(blueprint3d) {
     $("#move-down").click(function(){
       pan(directions.DOWN)
     })
+	
+	$("#threed").click(function(){
+       window.open("/new_file/new_file/new_plan.html");
+    })
 
     $("#move-left").dblclick(preventDefault);
     $("#move-right").dblclick(preventDefault);
     $("#move-up").dblclick(preventDefault);
     $("#move-down").dblclick(preventDefault);
+	
+	 
+	
 	loadproductDataXml();
 	loadDefinitionDataXml();
   }
@@ -127,9 +134,9 @@ var ContextMenu = function(blueprint3d) {
     });
 	
 	$("#clone-texture").click(function(event) {       
-		/*var mesh = new THREE.Mesh( selectedItem.geometry, selectedItem.material );
-		mesh.position.set( i * 100, 0, 0 );
-		scene.add( mesh );*/		
+		var mesh = new THREE.Mesh( selectedItem.geometry, selectedItem.material );
+		mesh.position.set( 0 * 100, 0, 0 );
+		scene.add( mesh );		
     });
 	$("#change-texture").click(function(event) { 
 		$("#popoverContent2").toggle();
