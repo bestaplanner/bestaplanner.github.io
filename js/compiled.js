@@ -3421,7 +3421,8 @@ var BP3D;
             Floorplanner.prototype.mousemove = function (event) {
                 this.mouseMoved = true;
                 // update mouse
-                this.rawMouseX = event.clientX;
+				
+                this.rawMouseX = event.clientX ;
                 this.rawMouseY = event.clientY;
                 this.mouseX = (event.clientX - this.canvasElement.offset().left) * this.cmPerPixel + this.originX * this.cmPerPixel;
                 this.mouseY = (event.clientY - this.canvasElement.offset().top) * this.cmPerPixel + this.originY * this.cmPerPixel;
@@ -3651,6 +3652,7 @@ var BP3D;
                 if (scope.enabled) {
                     event.preventDefault();
                     mouseMoved = true;
+					
                     mouse.x = event.clientX;
                     mouse.y = event.clientY;
                     if (!mouseDown) {
@@ -3805,7 +3807,7 @@ var BP3D;
                     }
                 }
                 rotateMouseOver = false;
-                hud.setMouseover(false);
+                //hud.setMouseover(false);
                 // check objects
                 var items = model.scene.getItems();
                 var intersects = scope.getIntersections(mouse, items, false, true);
@@ -3868,14 +3870,14 @@ var BP3D;
                 // filter by visible, if true
                 if (onlyVisible) {
                     intersections = BP3D.Core.Utils.removeIf(intersections, function (intersection) {
-                      return !intersection.object.visible;
+                       return !intersection.object.visible;
                     });
                 }
                 // filter by normals, if true
                 if (filterByNormals) {
                     intersections = BP3D.Core.Utils.removeIf(intersections, function (intersection) {
                         var dot = intersection.face.normal.dot(direction);
-                        return (dot > 0);
+                       return (dot > 0);
                     });
                 }
                 return intersections;
