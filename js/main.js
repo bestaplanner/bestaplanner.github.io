@@ -134,9 +134,9 @@ var ContextMenu = function(blueprint3d) {
     });
 	
 	$("#clone-texture").click(function(event) {       
-		var mesh = new THREE.Mesh( selectedItem.geometry, selectedItem.material );
-		mesh.position.set( 0 * 100, 0, 0 );
-		scene.add( mesh );		
+		//var mesh = new THREE.Mesh( selectedItem.geometry, selectedItem.material );
+		//mesh.position.set( 0 * 100, 0, 0 );
+		//scene.add( mesh );		
     });
 	$("#change-texture").click(function(event) { 
 		$("#popoverContent2").toggle();
@@ -167,6 +167,18 @@ var ContextMenu = function(blueprint3d) {
   }
   var cubeMesh = [];
   function itemSelected(item) {
+	   if(selectedItem != undefined){
+            
+		for (var i = 0 ; i < selectedItem.children.length; i++) {
+			var child = selectedItem.children[i];
+			if(child != selectedItem){
+				child.visible = false;
+			}
+		}
+	}
+	
+	
+	selectedItem = null;
     selectedItem = item;
 
     $("#context-menu-name").text(item.metadata.itemName);
@@ -179,11 +191,12 @@ var ContextMenu = function(blueprint3d) {
 	$(".tabbable").hide();
 
     $("#fixed").prop('checked', item.fixed);
-	$("#object-controls").css("visibility", 'visible');
+	//$("#object-controls").css("visibility", 'visible');
+	//$("#object-controls").css("y", selectedItem.position.y);
 	//--- child menus added
 	
 	    //...create materials for the child cubes....
-	/*material0 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/style.png' ) } );
+	material0 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/style.png' ) } );
 	material1 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/duplicate.png' ) } );
 	material2 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/delete.png' ) } );
     material3 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/plus.png' ) } );
@@ -195,22 +208,24 @@ var ContextMenu = function(blueprint3d) {
     cubeMesh[3] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material3);
 
         //--> Set child cube world positions before the attachment to parentCube mesh
-    cubeMesh[0].position.set(-50,35,0);
-    cubeMesh[1].position.set(-25,35,0);
-    cubeMesh[2].position.set(0,35,0);
-    cubeMesh[3].position.set(50,35,0);
+    cubeMesh[0].position.set(-20,35,0);
+    cubeMesh[1].position.set(-5,35,0);
+    cubeMesh[2].position.set(10,35,0);
+    cubeMesh[3].position.set(25,35,0);
 	
 	cubeMesh[0].id = "changetexture";
 	cubeMesh[1].id = "clone";
 	cubeMesh[2].id = "trash";
 	//cubeMesh[3].id = "changetexture";
         //Add child cubes to the scene
+	
     for (var i = 0; i < cubeMesh.length; i++)
 	{
         selectedItem.add(cubeMesh[i]);
 		//cubeMesh[i].butt
 		//scene.add(cubeMesh[i]);
-	}*/
+		
+	}
 
   }
 
@@ -231,18 +246,25 @@ var ContextMenu = function(blueprint3d) {
 
   function itemUnselected() {
     if(selectedItem != undefined){
-	/*for (var i = selectedItem.children.length - 1; i >= 0; i--) {
-		selectedItem.remove(selectedItem.children[i]);
-	}*/
+            
+		for (var i = 0 ; i < selectedItem.children.length; i++) {
+			var child = selectedItem.children[i];
+			if(child != selectedItem){
+				child.visible = false;
+			}
+		}
+	
 	//selectedItem.children ={};
 	//detachChild();
 	}
-	$("#object-controls").css("visibility", 'hidden');
+	//$("#object-controls").css("visibility", 'hidden');
 	
 	selectedItem = null;
 	
-    $("#context-menu").hide();
+   // $("#context-menu").hide();
   }
+  
+ 
 
   init();
 }

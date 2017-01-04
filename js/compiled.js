@@ -3795,20 +3795,7 @@ var BP3D;
             // mouse position, and the intersected object
             // both may be set to null if no intersection found
             function updateIntersections() {
-                // check the rotate arrow
-                var hudObject = hud.getObject();
-                if (hudObject != null) {
-                    var hudIntersects = scope.getIntersections(mouse, hudObject, false, false, true);
-                    if (hudIntersects.length > 0) {
-                        rotateMouseOver = true;
-                        hud.setMouseover(true);
-                        intersectedObject = null;
-                        return;
-                    }
-                }
-                rotateMouseOver = false;
-                //hud.setMouseover(false);
-                // check objects
+               
                 var items = model.scene.getItems();
                 var intersects = scope.getIntersections(mouse, items, false, true);
                 if (intersects.length > 0) {
@@ -3857,6 +3844,7 @@ var BP3D;
                 filterByNormals = filterByNormals || false;
                 recursive = recursive || false;
                 linePrecision = linePrecision || 20;
+				
                 var direction = vector.sub(camera.position).normalize();
 				
                 var raycaster = new THREE.Raycaster(camera.position, direction);
