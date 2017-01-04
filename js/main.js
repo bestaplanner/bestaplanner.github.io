@@ -140,7 +140,10 @@ var ContextMenu = function(blueprint3d) {
     });
 	$("#change-texture").click(function(event) { 
 		$("#popoverContent2").toggle();
-		$("#tabContent").css("visibility", 'hidden');
+		$('#tabContent').hide();
+		$('#textureContent').show();
+		//$("#popoverContent3").style.visibility='show'
+		//$("#tabContent").style.visibility='hidden'
 		
 	});
 

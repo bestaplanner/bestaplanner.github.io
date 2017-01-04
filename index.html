@@ -92,6 +92,7 @@
                   <!-- Popover-->
                   <div class="pull-right">
                      <div class="tabbable" id="popoverContent2">
+						<div style="display:block;" id="tabContent">
                         <div style="display:inline-block;width: 100%;margin-bottom: 5px;">
                            <div class="input-group pull-left width35" style="position:relative;">
                               <input id="email" type="text" class="form-control" name="email" placeholder="Search or article no">
@@ -107,7 +108,7 @@
                         </ul>
                         <div class="tab-content" style="padding: 10px; ">
                            <div class="tab-pane active tab1" >
-                              <div class="DD">
+                              <div class="DD" style="display:inline-block">
                                  <div class="dropdown dInline">
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Width
                                     <span class="caret"></span></button>
@@ -136,6 +137,17 @@
                                     </ul>
                                  </div>
                               </div>
+							  
+							  <div class="pull-right" style="width:35%">
+									<div class="colors">
+									Colors<br>
+									<div class="blackCircle pull-left">&nbsp;</div>
+									<div class="greyCircle pull-left">&nbsp;</div>
+									<div class="brownCircle pull-left">&nbsp;</div>
+							  </div>
+						
+						<div class="pull-right"> <a href="#">Clear Filters</a></div>
+						</div>
                               <!--div class="aCenter">
                                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                  <img src="images/60x20x38cm.jpg" >
@@ -160,6 +172,50 @@
                            <div class="tab-pane tab2">Tab Content 2</div>
                            <div class="tab-pane tab3" >Tab Content 3</div>
                         </div>
+						</div>
+						
+						<!-- Change Color -->
+						<div style="display:none;" id="textureContent">
+							<div style="display:inline-block;width: 100%;margin-bottom: 5px;">
+			                           <div class="input-group pull-left width35" style="position:relative;">
+			                              <b>Besta Frame White</b><br> 60*20*38 cm</div>
+			                           <div class="pull-right"><a href="#"> < Back </a></div>
+			                        </div>
+			                       
+								   <div class="tab-content" style="display:inline-block; width:100%; padding:10px;">
+			                         <div class="" style="width:100%; display:inline-block">
+										   
+						
+						</div>
+							<div style="position:relative;padding:0 50px; margin-top:10px;">
+								<div class="col-sm-2">
+									<a href="#" class="thumbnail texture-select-thumbnail" model-name="models/js/blackBrown.js">
+										<img alt="Thumbnail light fine wood" src="rooms/thumbnails/black.png" />
+									</a>
+								</div>
+								<div class="col-sm-2" >
+									<a href="#" class="thumbnail texture-select-thumbnail" model-name="models/js/60x20x38.js">
+										<img alt="Thumbnail light fine wood" src="rooms/thumbnails/oak.png" />
+									</a>
+								</div>
+								<div class="col-sm-2">
+									<a href="#" class="thumbnail texture-select-thumbnail" model-name="models/js/60x20x38.js">
+										<img alt="Thumbnail light fine wood" src="rooms/thumbnails/white_stained_oak_effect.png" />
+									</a>
+								</div>	
+								<div class="col-sm-2">
+									<a href="#" class="thumbnail texture-select-thumbnail" model-name="models/js/GreyStained.js">
+										<img alt="Thumbnail light fine wood" src="rooms/thumbnails/grey_stained_walnut_effect.png" />
+									</a>
+								</div>
+								<div class="col-sm-2">
+									<a href="#" class="thumbnail texture-select-thumbnail" model-name="models/js/white.js">
+										<img alt="Thumbnail light fine wood" src="rooms/thumbnails/white.png" />
+									</a>
+								</div>
+			                </div>
+						</div>
+						</div>
                      </div>
                      <a class="btn" id="btnPopover" href="#"><span class="glyphicon glyphicon-plus plusBG" style="margin:3px 0 0 0"></span></a>
                      <div id="main-controls">
