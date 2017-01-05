@@ -3653,8 +3653,8 @@ var BP3D;
                     event.preventDefault();
                     mouseMoved = true;
 					
-                    mouse.x = event.clientX;
-                    mouse.y = event.clientY;
+                    mouse.x = event.clientX+236;
+                    mouse.y = event.clientY-100;
                     if (!mouseDown) {
                         updateIntersections();
                     }
