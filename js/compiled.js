@@ -1445,7 +1445,7 @@ var BP3D;
         /** Default texture to be used if nothing is provided. */
         var defaultRoomTexture = {
             url: "rooms/textures/hardwood.png",
-            scale: 400
+            scale: 100
         };
         /**
          * A Room is the combination of a Floorplan with a floor plane.
