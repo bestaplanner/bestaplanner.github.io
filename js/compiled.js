@@ -1314,7 +1314,7 @@ var BP3D;
                 /** Wall thickness. */
                 this.thickness = BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallThickness);
                 /** Wall height. */
-                this.height =1000// BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallHeight);
+                this.height =500// BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallHeight);
                 /** Actions to be applied after movement. */
                 this.moved_callbacks = $.Callbacks();
                 /** Actions to be applied on removal. */
