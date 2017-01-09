@@ -6784,8 +6784,7 @@ button.close {
   }	
   
    #reset-view{
-    display: none !import
-ant;
+    display: none !important;
   }
   
    #zoom-in{
