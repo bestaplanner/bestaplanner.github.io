@@ -39,7 +39,7 @@ var CameraButtons = function(blueprint3d) {
     })
 	
 	$("#threed").click(function(){
-       window.open("/new_file/new_file/new_plan.html");
+       window.open("/2D_design/");
     })
 
     $("#move-left").dblclick(preventDefault);
