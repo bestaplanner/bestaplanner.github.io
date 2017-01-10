@@ -421,6 +421,7 @@ div.table-title {
     font-weight: 600;
 }
 
+
 .sidebar {
     display: table-cell;
     height: 100%;
@@ -575,5 +576,18 @@ border: none;
 	.blackCircle {border-radius:50%; background-color:#000; width:18px; height:18px; margin-right:2%}
 	.greyCircle {border-radius:50%; background-color:#ddd; width:18px; height:18px; margin-right:2%}
 	.brownCircle {background-color:#aa8b6c; border-radius:50%; width:18px; height:18px; margin-right:2%}
+	
+.share li{
+display:inline-block;
+width: 15%;
+padding-left: 0px;
+}
+.dropdown-menu{
+    min-width: 175px;
+}
+.dropdown-menu>li>a{
+    padding: 0px 7px;
+	display: inline-block;
+}
 	
 	

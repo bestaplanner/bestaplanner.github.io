@@ -4,18 +4,22 @@
       <title>Besta</title>
       <link href="css/bootstrap.css" rel="stylesheet" />
       <link rel="stylesheet" href="css/swiper.min.css">
-      <link href="css/besta.css" rel="stylesheet" />
+      <!--<link href="css/besta.css" rel="stylesheet" />-->
 	  
 	  <meta charset="utf-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
 	  
    </head>
    <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="css/besta.css" rel="stylesheet" />
 	  <script type="text/javascript">
 		function itmsdisp(){
 		document.querySelector(".tab-content").style.display = "block";
@@ -78,7 +82,14 @@
                          <a href="#" id="saveFile">Save</a>
                       </li>
                       <li>
-                         <a href="#">Share</a>
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="true" >Share</a>
+						<ul role="menu" class="dropdown-menu share">
+							<li class="p_int"><a><img src="images/pinterest.png"></img></a></li>
+							<li class="fb"><a><img src="images/fb.png"></img></a></li>
+							<li class="twit"><a href="#"><img src="images/twitter.png"></img></a></li>
+							<li class="g_s"><a href="#"><img src="images/google.png"></img></a></li>
+							<li class="email"><a href="#"><img src="images/email.png"></img></a></li>
+						</ul>
                       </li>
                       <li>
                          <a href="#">Help</a>
@@ -116,7 +127,7 @@
                               <input id="email" type="text" class="form-control" name="email" placeholder="Search or article no">
                               <span class="input-group-addon" style="background: transparent;border: none;position: absolute;right: 5px;top: -1px;"><i class="glyphicon glyphicon-search"></i></span>   
                            </div>
-                           <div class="pull-right">Add Product > <b> Storage Frames </b></div>
+                           <div class="pull-right"><font face="verdana" color="green">Add Product > </font><font face="verdana"><b> Storage Frames </b></font></div>
                         </div>
                         <ul class="nav nav-tabs" onclick="itmsdisp();">
                            <li class="active"><a href=".tab1" data-toggle="tab" data-item="storage frame"><img src="images/storage_frame.png" width="25px" height="25px"> Storage Frames</a></li>
@@ -145,7 +156,7 @@
                                        <li><a href="#">option 3</a></li>
                                     </ul>
                                  </div>
-                                 <div class="dropdown dInline">
+                                 <div class="dropdown dInline">									
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Depth
                                     <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
@@ -156,15 +167,14 @@
                                  </div>
                               </div>
 							  
-							  <div class="pull-right" style="width:35%">
-									<div class="colors">
-									Colors<br>
+							  <div class="pull-right" style="width:55%">
+									<div class="colors"style="font-family:Verdana;font-size:14px;">Colors<br>
 									<div class="blackCircle pull-left">&nbsp;</div>
 									<div class="greyCircle pull-left">&nbsp;</div>
 									<div class="brownCircle pull-left">&nbsp;</div>
 							  </div>
 						
-						<div class="pull-right"> <a href="#">Clear Filters</a></div>
+						<div class="pull-right"  style="width:35%;font-family: Verdana;"> <a href="#">Clear Filters</a></div>
 						</div>
                               <div style="position:relative;padding:0 50px;">
                                 <div class="swiper-container" id="swiper">

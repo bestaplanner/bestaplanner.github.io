@@ -3644,7 +3644,7 @@ tbody.collapse.in {
 }
 .dropdown-menu > li > a {
   display: block;
-  padding: 3px 20px;
+  padding: 0px,0px;
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
@@ -6783,7 +6783,7 @@ button.close {
     display: none !important;
   }	
   
-   #reset-view{
+   #undo-view{
     display: none !important;
   }
   
@@ -6845,7 +6845,7 @@ button.close {
     display: none !important;
   }	
   
-   #reset-view{
+   #undo-view{
     display: none !important;
   }
   
