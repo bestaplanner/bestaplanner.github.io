@@ -6740,6 +6740,81 @@ button.close {
   .visible-md-inline-block {
     display: inline-block !important;
   }
+  
+  .btn-primary{
+		width:50px !important;
+		padding:2px 2px !important;
+		font-size:8px !important;
+	}
+	
+	.btn .caret {
+    margin-left: -1px !important;
+}
+	
+	.redTxt{color:#d60000;
+	font-size:13px;}
+  
+  .tab-content{
+		display: none;
+	}
+	
+	.navbar-toggle {
+    display: block !important;
+	margin-left:10% !important;
+  }
+	
+	.navbar.navbar-inverse.navbar-fixed-top{
+		height:30px;
+	}
+   #redo-view{
+    display: none !important;
+  }	
+  
+   #undo-view{
+    display: none !important;
+  }
+  
+   #zoom-in{
+    display: none !important;
+  }
+  
+   #zoom-out{
+    display: none !important;
+  }
+  
+   #move-left{
+    display: none !important;
+  }
+  
+   #move-right{
+    display: none !important;
+  }
+   #measure-tap{
+    display: none !important;
+  }
+   #full-screen{
+    display: none !important;
+  }
+  .hidden-xs {
+    display: none !important;
+  }
+  
+  .sidebar{
+	  display: none !important;
+  }
+  #cartmob{
+	  display:block !important;
+  }
+  .navbar-brand{
+	  width:60%;
+  }
+  
+  #popoverContent2 .nav-tabs > li {
+    width: 100% !important;
+	border: none;
+    background: whitesmoke;
+} 
+  
 }
 @media (min-width: 1200px) {
   .visible-lg {
@@ -6772,9 +6847,41 @@ button.close {
   }
 }
 @media (max-width: 767px) {
+	
+	
+	.blackCircle {width:12px !important; height:12px !important;}
+	.greyCircle {width:12px !important; height:12px !important; }
+	.brownCircle {width:12px !important; height:12px !important;}
+	#crlrd
+	{
+	width:110px !important;
+	font-size:11px !important
+	}
+	#clrrd1
+	{
+	
+	font-size:11px !important
+	}
+	#clrfltr{font-size:10px !important;width:60px !important;}
+	
 	.tab-content{
 		display: none;
 	}
+	
+	.btn-primary{
+		width:50px !important;
+		padding:2px 2px !important;
+		font-size:8px !important;
+	}
+	
+	.btn .caret {
+    margin-left: -1px !important;
+}
+	
+	.redTxt{color:#d60000;
+	font-size:13px;}
+	
+	
 	
 	.navbar.navbar-inverse.navbar-fixed-top{
 		height:30px;
@@ -6830,14 +6937,134 @@ button.close {
   
 }
 @media (min-width: 768px) and (max-width: 991px) {
+	
+	.blackCircle {width:12px !important; height:12px !important;}
+	.greyCircle {width:12px !important; height:12px !important; }
+	.brownCircle {width:12px !important; height:12px !important;}
+	#crlrd
+	{
+	width:110px !important;
+	font-size:11px !important
+	}
+	#clrrd1
+	{
+	
+	font-size:11px !important
+	}
+	#clrfltr{font-size:10px !important;width:60px !important;}
+	
+	.btn-primary{
+		width:50px !important;
+		padding:2px 2px !important;
+		font-size:8px !important;
+	}
+	
+	.btn .caret {
+    margin-left: -1px !important;
+}
+	
   .hidden-sm {
     display: none !important;
   }
+  
+  .redTxt{color:#d60000;
+	font-size:13px;}
+  
+  .tab-content{
+		display: none;
+	}
+	
+		.navbar-toggle {
+    display: block !important;
+	
+  }
+	
+	.navbar.navbar-inverse.navbar-fixed-top{
+		height:30px;
+	}
+   #redo-view{
+    display: none !important;
+  }	
+  
+   #undo-view{
+    display: none !important;
+  }
+  
+   #zoom-in{
+    display: none !important;
+  }
+  
+   #zoom-out{
+    display: none !important;
+  }
+  
+   #move-left{
+    display: none !important;
+  }
+  
+   #move-right{
+    display: none !important;
+  }
+   #measure-tap{
+    display: none !important;
+  }
+   #full-screen{
+    display: none !important;
+  }
+  .hidden-xs {
+    display: none !important;
+  }
+  
+  .sidebar{
+	  display: none !important;
+  }
+  #cartmob{
+	  display:block !important;
+  }
+  .navbar-brand{
+	  width:60%;
+  }
+  
+  #popoverContent2 .nav-tabs > li {
+    width: 100% !important;
+	border: none;
+    background: whitesmoke;
+} 
+  
 }
 @media (min-width: 992px) and (max-width: 1199px) {
 	.tab-content{
 		display: none;
 	}
+	
+	.blackCircle {width:12px !important; height:12px !important;}
+	.greyCircle {width:12px !important; height:12px !important; }
+	.brownCircle {width:12px !important; height:12px !important;}
+	#crlrd
+	{
+	width:110px !important;
+	font-size:11px !important
+	}
+	#clrrd1
+	{
+	
+	font-size:11px !important
+	}
+	#clrfltr{font-size:10px !important;width:60px !important;}
+	
+	.redTxt{color:#d60000;
+	font-size:13px;}
+	
+.btn-primary{
+		width:50px !important;
+		padding:2px 2px !important;
+		font-size:8px !important;
+	}
+	
+	.btn .caret {
+    margin-left: -1px !important;
+}
+	
   .navbar.navbar-inverse.navbar-fixed-top{
 		height:30px;
 	}
