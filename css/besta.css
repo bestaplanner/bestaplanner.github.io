@@ -580,13 +580,13 @@ border: none;
 .share li{
 display:inline-block;
 width: 15%;
-padding-left: 0px;
+padding-left: 10px;
 }
 .dropdown-menu{
-    min-width: 175px;
+    min-width: 240px;
 }
 .dropdown-menu>li>a{
-    padding: 0px 7px;
+    padding: 0px 7px;	
 	display: inline-block;
 }
 	
