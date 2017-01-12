@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Example of Bootstrap 3 Two Column Grid Layouts for Tablets and Desktops</title>
+<title>2D Planner</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<style type="text/css">
+<link rel="stylesheet" href="style.css">
+<!--<style type="text/css">
     /* Some custom styles to beautify this example */
 	body {
     margin: 0;
@@ -290,7 +291,7 @@ margin-top: -20px
 	.carousel-inner .active.left { left: -16.7%; }
 	.carousel-inner .next        { left:  16.7%; }
 	.carousel-inner .prev		 { left: -16.7%; }	
-	.col-md-offset-1 { margin-left: -0.666667%;}
+	.col-md-offset-1 { margin-left: -0.666667%;margin-top: -30px;}
 	
 }
 
@@ -435,17 +436,21 @@ padding-left: 15px;
     background-color: #560fe0;
 }
 #login{
-color:#efeee8;font-size:20pt;
+color:#efeee8;font-size:13pt;
+}
+</style>-->
+
+<style>
+.inl{
+display:inline-block;
 }
 </style>
-
-
 		
 </head>
 <body>
 <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+       
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
                 <span class="sr-only">Toggle navigation</span>
@@ -454,48 +459,48 @@ color:#efeee8;font-size:20pt;
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#"><img
-                        src="images/logo.png"
+                        src="images/logo.PNG"
                         style="max-width:70%"></a>
 						
         </div><span class="glyphicon glyphicon-shopping-cart sh_Cart visible-xs visible-sm pull-right mobile_cart"> <span class="badge">0</span></span>
-        <!-- Collection of nav links and other content for toggling -->
+        
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                  <li>
                             <a href="#" >New</a>
                         </li>
-						<li class="line_bar">|</li>
+						
                         <li>
                             <a href="#" class="nav_bar">Open</a>
 							
                         </li>
-						<li class="line_bar">|</li>
+						
                         <li>
                             <a href="#" class="nav_bar">Save</a>
                         </li>
-						<li class="line_bar">|</li>
+						
                         <li class="dropdown share1">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Share</a>
                     <ul role="menu" class="dropdown-menu share">
-                        <li class="p_int"><a href="#"><img src="images/shareicons/pinterest_S.png" id="pin"></img></a></li>
-                        <li class="fb"><a><img src="images/shareicons/fb_S.png" id="fb"></img></a></li>
-                        <li class="twit"><a href="#"><img src="images/shareicons/twit_S.png" id="twit"></img></a></li>
-                        <li class="g_s"><a href="#"><img src="images/shareicons/g_S.png" id="gs"></img></a></li>
-                        <li class="email"><a href="#"><img src="images/shareicons/email_S.png" id="email"></img></a></li>
+                        <li class="p_int"><a href="#"><img src="images/shareicons/pinterest_S.PNG" id="pin"></img></a></li>
+                        <li class="fb"><a><img src="images/shareicons/fb_S.PNG" id="fb"></img></a></li>
+                        <li class="twit"><a href="#"><img src="images/shareicons/twit_S.PNG" id="twit"></img></a></li>
+                        <li class="g_s"><a href="#"><img src="images/shareicons/g_S.PNG" id="gs"></img></a></li>
+                        <li class="email"><a href="#"><img src="images/shareicons/email_S.PNG" id="email"></img></a></li>
                     </ul>
                 </li>
-						<li class="line_bar">|</li>
+						
                         <li>
                             <a href="#" class="nav_bar">Help</a>
                         </li>
-						<li class="line_bar">|</li>
+						
 						<li>
                             <a href="#" class="nav_bar">Print</a>
                         </li>
 						
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
-                <li><a href="#" id="login">Login</a></li>
+                <li><a href="#" id="login">LOGIN</a></li>
             </ul>
         </div>
     </div>
@@ -553,26 +558,26 @@ color:#efeee8;font-size:20pt;
 		<div class="col-sm-9">
 		
 		<button class="btn btn-default btn-lg btn1">
-                           <img src="../images/undo.png" id="undo"></img>
+                           <img src="../images/undo.PNG" id="undo"></img>
                         </button>
 						
 						<button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm">
-                           <span><img src="../images/redo.png" id="redo"></img></span>
+                           <span><img src="../images/redo.PNG" id="redo"></img></span>
                         </button>
                         <button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm">
-                            <span><img src="../images/center.png" id="center"></img></span>
+                            <span><img src="../images/center.PNG" id="center"></img></span>
                         </button>
                         <button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm">
-                            <span><img src="../images/zoom_in.png" id="z_in"></img></span>
+                            <span><img src="../images/zoom_in.PNG" id="z_in"></img></span>
                         </button>
 						<button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm">
-                            <span><img src="../images/zoom_out.png" id="z_out"></img></span>
+                            <span><img src="../images/zoom_out.PNG" id="z_out"></img></span>
                         </button>
                         <button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm" >
-                            <span><img src="../images/fullscreen.png" id="full"></img></span>
+                            <span><img src="../images/fullscreen.PNG" id="full"></img></span>
                         </button>
 						<button class="btn btn-default btn-lg btn1">
-                            <span><img src="../images/3d.png" id="3d"></img></span>
+                            <a href="https://bestaplanner.github.io/start_scratch.html" target="_blank"><img src="../images/3d.PNG" id="3d"></img></a>
                         </button>
 						
 						
@@ -595,40 +600,17 @@ color:#efeee8;font-size:20pt;
             <div class="col-sm-9">
 			
                 <div class="content_area">
-			<!--	<button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm">
-                           <img src="../images/3d.png"></img>
-                        </button>
-						<span><img src="../images/3d.png"></img></span>
-						<button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                        </button>
-                        <button class="btn btn-default btn-lg btn1 hidden-xs hidden-sm">
-                            <span class="glyphicon glyphicon-screenshot"></span>
-                        </button>
-                        <button class="btn btn-default btn-lg btn1">
-                            <span class="glyphicon glyphicon-zoom-in"></span>
-                        </button>
-                        <button class="btn btn-default btn-lg btn1" >
-                            <span class="glyphicon glyphicon-zoom-out"></span>
-                        </button>
-						<button
-                            class="btn btn-default btn-lg btn1"
-                            onclick="toggleFullScreen(document.body)">
-                            
-                        </button>
-						<span><img src="../images/3d.png"></img></span>-->
+			
 						<a
                             class="trigger btn btn-default btn-lg pull-right btn1 "
                             href="#"
                             id="btnPopover">
-                            <span><img src="../images/add_product.png" id="add"></img></span>
+                            <span><img src="../images/add_product.PNG" id="add"></img></span>
                         </a>
 						
 						<div class="tabbable hide" id="popoverContent" style="margin-top:0px;">
 						 <div class="row">
-						<!-- <div class="col-md-6">
-						 <input type="text" placeholder="Search" class="form-control"> 
-						 </div>-->
+						
 						 
 						 <div class="col-md-6 col-sm-12 col-xs-12">
             <form action="" class="search-form">
@@ -640,24 +622,67 @@ color:#efeee8;font-size:20pt;
             </form>
         </div>
 						 <div class="col-md-6 col-sm-12 col-xs-12">
-						<div class="pull-right"> Add Product > Storage Frames</div>
+						<div class="pull-right"> 
+						<font face="verdana" color="green">Add Product &gt; </font><font face="verdana"><b> Storage Frames </b></font>
+						</div>
 						 </div>
 						 </div>
                     
 				
-     <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab1" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/BESTA_frame.png"/></span>Storage Frames</a></li>
-        <li class="tab"><a href="#tab2" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/mediaSolutions.png"/></span>Tv bench</a></li>
-        <li class="tab"><a href="#tab3" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/propping.png"/></span>Propping</a></li>
-		<li class="tab"><a href="#tab4" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/Tvbench.png"/></span>Place Holder</a></li>
+     <ul class="nav nav-tabs nv_tb">
+        <li class="active"><a href="#tab1" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/BESTA_frame.PNG"/></span>Storage Frames</a></li>
+        <li class="tab"><a href="#tab2" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/mediaSolutions.PNG"/></span>Tv bench</a></li>
+        <li class="tab"><a href="#tab3" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/propping.PNG"/></span>Propping</a></li>
+		<li class="tab"><a href="#tab4" data-toggle="tab"><span><img alt="Click to load map" src="images/popoverimages/Tvbench.PNG"/></span>Place Holder</a></li>
     </ul>
     <div class="tab-content" style="padding-top:5px;background: white;">
         <div class="tab-pane active" id="tab1">
 		<div class="container width_pop">
 		<div class="row">
+		<div class="col-md-5 col-sm-12 col-xs-12 inl">
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+			
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-6">
+		<div><span>Color:</span><br>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
+		</div>
+		</div>
+		<div class="col-md-3 col-sm-6 col-xs-6">
+		<a>Clear Filter</a>
+		</div>
+		</div>
+	<!--	<div class="row">
 		<div class="col-md-2">
 			<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -668,7 +693,7 @@ color:#efeee8;font-size:20pt;
 		</div>
 		<div class="col-md-2 dd">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -679,7 +704,7 @@ color:#efeee8;font-size:20pt;
 		</div>
 		<div class="col-md-2 dd1">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -690,29 +715,15 @@ color:#efeee8;font-size:20pt;
 		</div>
 		<div class="col-md-3 dd2">
 		<div><span>Color:</span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/all.png"/></span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/oak.png"/></span>
-            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.png"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
 		</div>
 		</div>
 		<div class="col-md-3 dd3"><a>Clear Filter</a></div>
-		</div>
+		</div>-->
 		<br></br>
-		<!--image row
-		<div class="row">
-		<ul class="pagination">
-        <li class="disabled"><a href="#"><img alt="" src="left.png" style="height:50px;width:35px"></a></li>
-        <li><a><img alt="" src="images/thumbnail/60x20x38 cm.jpg" style="height:50px;width:50px"></a></li>
-        <li><a href="#"><img alt="" src="images/thumbnail/black brwon.jpg" style="height:50px;width:50px"></a></li>
-        <li><a href="#"><img alt="" src="images/thumbnail/FR18.jpg" style="height:50px;width:50px"></a></li>
-        <li><a href="#"><img alt="" src="images/thumbnail/white.jpg" style="height:50px;width:50px"></a></li>
-        <li><a href="#"><img alt="" src="images/thumbnail/Grey Stained.jpg" style="height:50px;width:50px"></a></li>
-		<li><a href="#"><img alt="" src="images/thumbnail/60x20x38 cm.jpg" style="height:50px;width:50px"></a></li>
-		<li><a href="#"><img alt="" src="images/thumbnail/black brwon.jpg" style="height:50px;width:50px"></a></li>
-        <li><a href="#"><img alt="" src="right.png" style="height:50px;width:35px"></a></li>
-		</ul>
-		</div>
-		 -->
+		
 		
 		<div class="row">
             
@@ -720,28 +731,28 @@ color:#efeee8;font-size:20pt;
 <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval=false id="myCarousel">
   <div class="carousel-inner">
     <div class="item active">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG" class="img-responsive" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" class="img-responsive"></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -768,6 +779,9 @@ $('.carousel[data-type="multi"] .item').each(function(){
     next.children(':first-child').clone().appendTo($(this));
   }
 });
+
+
+  
 });
 </script>
 
@@ -779,9 +793,50 @@ $('.carousel[data-type="multi"] .item').each(function(){
         <div class="tab-pane" id="tab2">
 		<div class="container width_pop">
 		<div class="row">
+		<div class="col-md-5 col-sm-12 col-xs-12 inl">
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+			
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-6">
+		<div><span>Color:</span><br>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
+		</div>
+		</div>
+		<div class="col-md-3 col-sm-6 col-xs-6"><br>
+		<a>Clear Filter</a>
+		</div>
+		</div>
+		<!--<div class="row">
 		<div class="col-md-2">
 			<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -792,7 +847,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-2 dd">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -803,7 +858,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-2 dd1">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -814,13 +869,13 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-3 dd2">
 		<div><span>Color:</span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/all.png"/></span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/oak.png"/></span>
-            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.png"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
 		</div>
 		</div>
 		<div class="col-md-3 dd3"><a>Clear Filter</a></div>
-		</div>
+		</div>-->
 		<br></br>
 		
 		<div class="row">
@@ -835,22 +890,22 @@ $('.carousel[data-type="multi"] .item').each(function(){
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -869,9 +924,50 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		<div class="tab-pane" id="tab2">
 		<div class="container width_pop">
 		<div class="row">
+		<div class="col-md-5 col-sm-12 col-xs-12 inl">
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+			
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-6">
+		<div><span>Color:</span><br>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
+		</div>
+		</div>
+		<div class="col-md-3 col-sm-6 col-xs-6"><br>
+		<a>Clear Filter</a>
+		</div>
+		</div>
+		<!--<div class="row">
 		<div class="col-md-2">
 			<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -882,7 +978,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-2 dd">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -893,7 +989,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-2 dd1">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -904,13 +1000,13 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-3 dd2">
 		<div><span>Color:</span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/all.png"/></span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/oak.png"/></span>
-            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.png"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
 		</div>
 		</div>
 		<div class="col-md-3 dd3"><a>Clear Filter</a></div>
-		</div>
+		</div>-->
 		<br></br>
 		
 		<div class="row">
@@ -922,25 +1018,25 @@ $('.carousel[data-type="multi"] .item').each(function(){
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -959,9 +1055,50 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		<div class="tab-pane" id="tab2">
 		<div class="container width_pop">
 		<div class="row">
+		<div class="col-md-5 col-sm-12 col-xs-12 inl">
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+			
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-6">
+		<div><span>Color:</span><br>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
+		</div>
+		</div>
+		<div class="col-md-3 col-sm-6 col-xs-6"><br>
+		<a>Clear Filter</a>
+		</div>
+		</div>
+		<!--<div class="row">
 		<div class="col-md-2">
 			<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Width
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -972,7 +1109,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-2 dd">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Height
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown" >Height
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -983,7 +1120,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-2 dd1">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
+			<button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Depth
 			<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -994,13 +1131,13 @@ $('.carousel[data-type="multi"] .item').each(function(){
 		</div>
 		<div class="col-md-3 dd2">
 		<div><span>Color:</span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/all.png"/></span>
-			<span class="round_col"><img alt="Click" src="images/coloricon/oak.png"/></span>
-            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.png"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/all.PNG"/></span>
+			<span class="round_col"><img alt="Click" src="images/coloricon/oak.PNG"/></span>
+            <span class="round_col"><img alt="Click" src="images/coloricon/white_stained_oak_effect.PNG"/></span>
 		</div>
 		</div>
 		<div class="col-md-3 dd3"><a>Clear Filter</a></div>
-		</div>
+		</div>-->
 		<br></br>
 		
 		<div class="row">
@@ -1015,22 +1152,22 @@ $('.carousel[data-type="multi"] .item').each(function(){
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.jpg" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -1056,6 +1193,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
     placement: "left",
     content: $('#popoverContent').remove().html()
 });
+
 			</script>
 			<!-- Total Area start-->
             <div class="col-md-3 hidden-xs">
