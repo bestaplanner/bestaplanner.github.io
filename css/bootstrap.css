@@ -6755,7 +6755,7 @@ button.close {
 	font-size:13px;}
   
   .tab-content{
-		display: none;
+		display: block;
 	}
 	
 	.navbar-toggle {
@@ -6856,6 +6856,10 @@ button.close {
 	{
 	width:110px !important;
 	font-size:11px !important
+	float:left !important;
+	}
+	#swpr{
+		margin-top:35px;
 	}
 	#clrrd1
 	{
@@ -6865,7 +6869,7 @@ button.close {
 	#clrfltr{font-size:10px !important;width:60px !important;}
 	
 	.tab-content{
-		display: none;
+		display: block;
 	}
 	
 	.btn-primary{
@@ -6945,6 +6949,10 @@ button.close {
 	{
 	width:110px !important;
 	font-size:11px !important
+	float:left !important;
+	}
+	#swpr{
+		margin-top:35px;
 	}
 	#clrrd1
 	{
@@ -6971,7 +6979,7 @@ button.close {
 	font-size:13px;}
   
   .tab-content{
-		display: none;
+		display: block;
 	}
 	
 		.navbar-toggle {
@@ -7034,7 +7042,7 @@ button.close {
 }
 @media (min-width: 992px) and (max-width: 1199px) {
 	.tab-content{
-		display: none;
+		display: block;
 	}
 	
 	.blackCircle {width:12px !important; height:12px !important;}
@@ -7044,6 +7052,10 @@ button.close {
 	{
 	width:110px !important;
 	font-size:11px !important
+	float:left !important;
+	}
+	#swpr{
+		margin-top:35px;
 	}
 	#clrrd1
 	{
