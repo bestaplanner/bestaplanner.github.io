@@ -6802,6 +6802,10 @@ button.close {
   .sidebar{
 	  display: none !important;
   }
+
+	.DD{
+		display:block !important;
+	}
   #cartmob{
 	  display:block !important;
   }
@@ -6926,6 +6930,9 @@ button.close {
   .sidebar{
 	  display: none !important;
   }
+	.DD{
+		display:block !important;
+	}
   #cartmob{
 	  display:block !important;
   }
@@ -7026,6 +7033,9 @@ button.close {
   .sidebar{
 	  display: none !important;
   }
+	.DD{
+		display:block !important;
+	}
   #cartmob{
 	  display:block !important;
   }
@@ -7115,6 +7125,9 @@ button.close {
   .sidebar{
 	  display: none !important;
   }
+	.DD{
+		display:block !important;
+	}
   #cartmob{
 	  display:block !important;
   }
