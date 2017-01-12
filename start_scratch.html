@@ -429,16 +429,31 @@
 
         function initSwiper(){
           if(swiper !== undefined) swiper.destroy(true, true);
+          if($(window).width() < 1024){
+  
+
           swiper = new Swiper('.swiper-container', {
               //pagination: '.swiper-pagination',
-              slidesPerView: 6,
+              slidesPerView:3,
+              slidesPerGroup: 3,
+              initialSlide: 0,
+              //paginationClickable: true,
+              spaceBetween: 15,
+              nextButton: '.swiper-button-next',
+              prevButton: '.swiper-button-prev'
+          });}
+		  
+		  else {         
+	swiper = new Swiper('.swiper-container', {
+              //pagination: '.swiper-pagination',
+              slidesPerView:6,
               slidesPerGroup: 6,
               initialSlide: 0,
               //paginationClickable: true,
               spaceBetween: 15,
               nextButton: '.swiper-button-next',
               prevButton: '.swiper-button-prev'
-          });
+          });}
 		
         }
 		
