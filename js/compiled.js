@@ -3653,8 +3653,8 @@ var BP3D;
                     event.preventDefault();
                     mouseMoved = true;
 					
-                    mouse.x = event.clientX;
-                    mouse.y = event.clientY;
+                    mouse.x = event.clientX+236;
+                    mouse.y = event.clientY-50;
                     if (!mouseDown) {
                         updateIntersections();
                     }
@@ -5154,7 +5154,7 @@ var BP3D;
             };
             this.updateWindowSize = function () {
                 scope.heightMargin = scope.element.offset().top;
-                scope.widthMargin = -scope.element.offset().left;
+                scope.widthMargin = scope.element.offset().left;
                 scope.elementWidth = scope.element.innerWidth();
                 if (options.resize) {
                     scope.elementHeight = window.innerHeight - scope.heightMargin;
