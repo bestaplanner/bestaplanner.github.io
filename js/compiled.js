@@ -3653,8 +3653,8 @@ var BP3D;
                     event.preventDefault();
                     mouseMoved = true;
 					
-                    mouse.x = event.clientX+236;
-                    mouse.y = event.clientY-50;
+                    mouse.x = event.clientX;
+                    mouse.y = event.clientY;
                     if (!mouseDown) {
                         updateIntersections();
                     }
@@ -3808,8 +3808,8 @@ var BP3D;
             // sets coords to -1 to 1
             function normalizeVector2(vec2) {
                 var retVec = new THREE.Vector2();
-                retVec.x = ((vec2.x - three.widthMargin) / (window.innerWidth - three.widthMargin)) * 2 - 1;
-                retVec.y = -((vec2.y - three.heightMargin) / (window.innerHeight - three.heightMargin)) * 2 + 1;
+                retVec.x = ((vec2.x - three.widthMargin) / (three.element.innerWidth() - three.widthMargin)) * 2 - 1;
+                retVec.y = -((vec2.y - three.heightMargin) / (three.element.innerHeight() - three.heightMargin)) * 2 + 1;
                 return retVec;
             }
             //
@@ -3846,6 +3846,8 @@ var BP3D;
                 linePrecision = linePrecision || 20;
 				
                 var direction = vector.sub(camera.position).normalize();
+				
+				
 				
                 var raycaster = new THREE.Raycaster(camera.position, direction);
                 raycaster.linePrecision = linePrecision;
@@ -5157,7 +5159,8 @@ var BP3D;
                 scope.widthMargin = scope.element.offset().left;
                 scope.elementWidth = scope.element.innerWidth();
                 if (options.resize) {
-                    scope.elementHeight = window.innerHeight - scope.heightMargin;
+                    scope.elementHeight = window.innerHeight - scope.heightMargin ;
+					
                 }
                 else {
                     scope.elementHeight = scope.element.innerHeight();
