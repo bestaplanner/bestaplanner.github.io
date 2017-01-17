@@ -67,6 +67,45 @@
 	  "modeltype" : "storage frame"
     },
 	{
+      "name" : "60x40x128 cm",
+      "image" : "models/thumbnails/FR01_white.jpg",
+      "model" : "models/js/FR01.js",
+      "type" : "1",
+	  "colour": "white",
+	  "price" : "$75",
+	  "articleno" : "40245840",
+	  "width" : "60",
+	  "height" : "128",
+	  "depth" : "40",
+	  "modeltype" : "storage frame"
+    },
+	{
+      "name" : "60x40x128 cm",
+      "image" : "models/thumbnails/FR01_bb.jpg",
+      "model" : "models/js/FR01_bb.js",
+      "type" : "1",
+	  "colour": "black brown",
+	  "price" : "$75",
+	  "articleno" : "40245944",
+	  "width" : "60",
+	  "height" : "128",
+	  "depth" : "40",
+	  "modeltype" : "storage frame"
+    },
+	{
+      "name" : "60x40x128 cm",
+      "image" : "models/thumbnails/FR01_oak.jpg",
+      "model" : "models/js/FR01_oak.js",
+      "type" : "1",
+	  "colour": "oak effect",
+	  "price" : "$75",
+	  "articleno" : "50260868",
+	  "width" : "60",
+	  "height" : "128",
+	  "depth" : "40",
+	  "modeltype" : "storage frame"
+    },
+	{
       "name" : "120x40x38 cm",
       "image" : "models/thumbnails/10294511.JPG",
       "model" : "#",

@@ -207,25 +207,25 @@ var ContextMenu = function(blueprint3d) {
 	//material8 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/accessories.png' ) } );
 	
     //create child cube mesh
-    cubeMesh[0] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material0);
-    cubeMesh[1] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material1);
-    cubeMesh[2] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material2);
-    cubeMesh[3] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material3);
-	cubeMesh[4] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material4);
-	cubeMesh[5] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material5);
-	cubeMesh[6] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material6);
-	cubeMesh[7] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material7);
+    cubeMesh[0] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material0);
+    cubeMesh[1] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material1);
+    cubeMesh[2] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material2);
+    cubeMesh[3] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material3);
+	cubeMesh[4] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material4);
+	cubeMesh[5] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material5);
+	cubeMesh[6] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material6);
+	cubeMesh[7] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material7);
 	//cubeMesh[8] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material8);
 
         //--> Set child cube world positions before the attachment to parentCube mesh
-    cubeMesh[0].position.set(-35,75,0);
-    cubeMesh[1].position.set(-10,75,0);
-    cubeMesh[2].position.set(15,75,0);
-    cubeMesh[3].position.set(55,75,0);
-	cubeMesh[4].position.set(55,55,0);
-	cubeMesh[5].position.set(55,35,0);
-	cubeMesh[6].position.set(55,15,0);
-	cubeMesh[7].position.set(55,-5,0);
+    cubeMesh[0].position.set(-20,95,0);
+    cubeMesh[1].position.set(10,95,0);
+    cubeMesh[2].position.set(40,95,0);
+    cubeMesh[3].position.set(65,95,0);
+	cubeMesh[4].position.set(65,55,0);
+	cubeMesh[5].position.set(65,35,0);
+	cubeMesh[6].position.set(65,15,0);
+	cubeMesh[7].position.set(65,-5,0);
 	//cubeMesh[8].position.set(55,0,0);
 	
 	cubeMesh[0].id = "changetexture";
