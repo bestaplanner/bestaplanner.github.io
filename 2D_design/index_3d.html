@@ -3,8 +3,6 @@
    <head>
       <title>Besta</title>
       <link href="css/bootstrap.css" rel="stylesheet" />
-      <link rel="stylesheet" href="css/swiper.min.css">
-      <!--<link href="css/besta.css" rel="stylesheet" />-->
 	  <link rel="stylesheet" href="style.css">
 	  <meta charset="utf-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,29 +19,10 @@
 		function itmsdisp(){
 		document.querySelector(".tab-content").style.display = "block";
 		}
-	  </script> 
-      <script type="text/template" class="swiper">
+	  </script>      
 
-          <%
-            // repeat items 
-            _.each(rc.data, function(v,key,arr){
-          %>	  
-		  
-            <div class="swiper-slide">
-              <a href="#" class="add-item"  model-name= "<%= v.name %>" model-url= "<%= v.model %>" model-type= "<%= v.type %>">
-                <img src="<%= v.image %>" alt="" class="img-responsive">
-                <div style="font-size: 8px;color: #222;font-weight: 600;"><%= v.name %></div>
-              </a>
-            </div>
-
-          <%
-            });
-          %>
-
-      </script>
-
-      <div class="container-fluid main-wrapper">
-		<div class="container-fluid scroll-wrapper" style="padding: 0;">
+      <!--<div class="container-fluid main-wrapper">
+		<div class="container-fluid scroll-wrapper" style="padding: 0;">-->
          <!-- Navigation -->
          
            <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -64,32 +43,31 @@
         
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                 <li>
-                            <a href="#" >New</a>
-                        </li>
+               <li>
+                <a href="#" >New</a>
+               </li>
 						
-                        <li>
-                            <a href="#" class="nav_bar">Open</a>
-							
-                        </li>
+               <li>
+                <a href="#" class="nav_bar">Open</a>							
+               </li>
 						
-                        <li>
-                            <a href="#" class="nav_bar">Save</a>
-                        </li>
+               <li>
+                <a href="#" class="nav_bar">Save</a>
+               </li>
 						
-                        <li class="dropdown share1">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Share</a>
-                    <ul role="menu" class="dropdown-menu share">
-                        <li class="p_int"><a href="#"><img src="images/Share_icons/pinterest_grey.png" id="pin"></img></a></li>
-                        <li class="fb"><a><img src="images/Share_icons/facebook_grey.png" id="fb"></img></a></li>
-                        <li class="twit"><a href="#"><img src="images/Share_icons/twitter_grey.png" id="twit"></img></a></li>
-                        <li class="g_s"><a href="#"><img src="images/Share_icons/google_grey.png" id="gs"></img></a></li>
-                        <li class="email"><a href="#"><img src="images/Share_icons/email_grey.png" id="email"></img></a></li>
-                    </ul>
+               <li class="dropdown share1">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Share</a>
+                   <ul role="menu" class="dropdown-menu share">
+                        <li class="p_int"><a href="#"><img src="images/Share_icons/pinterest_grey.png" id="pin"/></a></li>
+                        <li class="fb"><a><img src="images/Share_icons/facebook_grey.png" id="fb"/></a></li>
+                        <li class="twit"><a href="#"><img src="images/Share_icons/twitter_grey.png" id="twit"/></a></li>
+                        <li class="g_s"><a href="#"><img src="images/Share_icons/google_grey.png" id="gs"/></a></li>
+                        <li class="email"><a href="#"><img src="images/Share_icons/email_grey.png" id="email"/></a></li>
+                   </ul>
 					
                 </li>
 						
-                        <li>
+                <li>
                             <a href="#" class="nav_bar">Help</a>
                         </li>
 						
@@ -98,7 +76,7 @@
                         </li>
 						<li class="hidden-md hidden-lg">
                             <a href="#" class="nav_bar">Login</a>
-                        </li>
+                        </li>        
             </ul>
 			
             <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
@@ -188,7 +166,7 @@
 					</div>
 					</div>
 				
-					<br></br>
+					<br/>
 					
 					
 					<div class="row">
@@ -345,7 +323,7 @@
 		<!--tab3-->
         <div class="tab-pane" id="tab3">
 		
-		<div class="tab-pane" id="tab2">
+
 		<div class="container width_pop">
 		<div class="row">
 		<div class="col-md-5 col-sm-12 col-xs-12 inl">
@@ -431,7 +409,6 @@
 		
 		</div>
 		</div>
-		</div>
 		<!--tab4-->
 		<div class="tab-pane" id="tab4">
 		<div class="tab-pane" id="tab2">
@@ -478,7 +455,7 @@
 		</div>
 		</div>
 		
-		<br></br>
+		<br/><br/>
 		
 		<div class="row">
             
@@ -486,28 +463,28 @@
 			<div class="carousel slide" data-ride="carousel" data-type="multi" data-interval=false id="myCarousel">
 			  <div class="carousel-inner">
 				<div class="item active">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG"/></a></div>
 				</div>
 				<div class="item">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG"/></a></div>
 				</div>
 				<div class="item">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG"/></a></div>
 				</div>
 				<div class="item">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG"/></a></div>
 				</div>
 				<div class="item">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG"/></a></div>
 				</div>
 				<div class="item">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG"/></a></div>
 				</div>
 				<div class="item">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG"/></a></div>
 				</div>
 				<div class="item">
-				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" ></a></div>
+				  <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG"/></a></div>
 				</div>
 			  </div>
 			  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -541,7 +518,7 @@
 						<!--<a class="btn1" id="btnPopover" href="#"><img onmouseover="this.src='images/add_product_hover.png'" src="images/add_product.png"  onmouseout="this.src='images/add_product.png'" /></a>
 						<a class="btn2" id="btnWallover" href="#"><img onmouseover="this.src='images/room_layout_hover.png'" src="images/room_layout.png"  onmouseout="this.src='images/room_layout.png'" /></a>-->
 						<a class="trigger btn btn-default btn-lg pull-right btn1 " href="#" id="btnPopover">
-                            <span><img src="../images/add_product.png" id="add"></img></span>
+                            <span><img src="../images/add_product.png" id="add"/></span>
                         </a>
                      </div>
 					
@@ -603,9 +580,9 @@
 
 
 
-            </div>
-         </div>
-		 <!--</div>-->
+            <!--</div>
+         </div>-->
+
       </div>
       <script src="js/three.min.js"></script>
       <script src="js/compiled.js"></script>
