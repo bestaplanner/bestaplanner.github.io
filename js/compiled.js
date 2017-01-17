@@ -1314,7 +1314,7 @@ var BP3D;
                 /** Wall thickness. */
                 this.thickness = BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallThickness);
                 /** Wall height. */
-                this.height =500// BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallHeight);
+                this.height =400// BP3D.Core.Configuration.getNumericValue(BP3D.Core.configWallHeight);
                 /** Actions to be applied after movement. */
                 this.moved_callbacks = $.Callbacks();
                 /** Actions to be applied on removal. */
@@ -5176,7 +5176,7 @@ var BP3D;
                 pan.y = yOffset;
                 scope.controls.target = pan;
                 var distance = model.floorplan.getSize().z * 1;
-                var offset = pan.clone().add(new THREE.Vector3(0, -500, 0));
+                var offset = pan.clone().add(new THREE.Vector3(0, -300, 0));
                 //scope.controls.setOffset(offset);
 				/* camera.position.set(0,-1000,0); */
                 camera.position.copy(offset);
