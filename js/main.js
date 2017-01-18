@@ -278,7 +278,7 @@ var ContextMenu = function(blueprint3d) {
 			}
 		}
 	
-	 selectedItem.children ={};
+	// selectedItem.children ={};
 	//detachChild();
 	}
 	//$("#object-controls").css("visibility", 'hidden');
