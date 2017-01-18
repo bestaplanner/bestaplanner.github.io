@@ -68,7 +68,7 @@
     },
 	{
       "name" : "60x40x128 cm",
-      "image" : "models/thumbnails/FR01_white.jpg",
+      "image" : "models/thumbnails/FR01_white.JPG",
       "model" : "models/js/FR01.js",
       "type" : "1",
 	  "colour": "white",
@@ -81,7 +81,7 @@
     },
 	{
       "name" : "60x40x128 cm",
-      "image" : "models/thumbnails/FR01_bb.jpg",
+      "image" : "models/thumbnails/FR01_bb.JPG",
       "model" : "models/js/FR01_bb.js",
       "type" : "1",
 	  "colour": "black brown",
@@ -94,7 +94,7 @@
     },
 	{
       "name" : "60x40x128 cm",
-      "image" : "models/thumbnails/FR01_oak.jpg",
+      "image" : "models/thumbnails/FR01_oak.JPG",
       "model" : "models/js/FR01_oak.js",
       "type" : "1",
 	  "colour": "oak effect",
