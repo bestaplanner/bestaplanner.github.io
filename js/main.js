@@ -195,7 +195,7 @@ var ContextMenu = function(blueprint3d) {
 	//$("#object-controls").css("y", selectedItem.position.y);
 	//--- child menus added
 	
-	    //...create materials for the child cubes....
+	    //...create materials for the child cubes....	
 	material0 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/style.png' ) } );
 	material1 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/duplicate.png' ) } );
 	material2 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/delete.png' ) } );
@@ -205,8 +205,9 @@ var ContextMenu = function(blueprint3d) {
 	material6 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/legs.png' ) } );
 	material7 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/knobs.png' ) } );
 	//material8 = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture( 'images/accessories.png' ) } );
-	
+
     //create child cube mesh
+	
     cubeMesh[0] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material0);
     cubeMesh[1] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material1);
     cubeMesh[2] = new THREE.Mesh(new THREE.CircleGeometry(9, 25), material2);
@@ -218,28 +219,36 @@ var ContextMenu = function(blueprint3d) {
 	//cubeMesh[8] = new THREE.Mesh(new THREE.CircleGeometry(10, 25), material8);
 
         //--> Set child cube world positions before the attachment to parentCube mesh
-    cubeMesh[0].position.set(-20,95,0);
-    cubeMesh[1].position.set(10,95,0);
-    cubeMesh[2].position.set(40,95,0);
-    cubeMesh[3].position.set(65,95,0);
-	cubeMesh[4].position.set(65,55,0);
-	cubeMesh[5].position.set(65,35,0);
-	cubeMesh[6].position.set(65,15,0);
-	cubeMesh[7].position.set(65,-5,0);
+	if(selectedItem.metadata.itemName == "60x20x38 cm"){		
+		cubeMesh[0].position.set(-20,75,0);
+		cubeMesh[1].position.set(10,75,0);
+		cubeMesh[2].position.set(40,75,0);
+		cubeMesh[3].position.set(65,75,0);
+		cubeMesh[4].position.set(65,55,0);
+		cubeMesh[5].position.set(65,35,0);
+		cubeMesh[6].position.set(65,15,0);
+		cubeMesh[7].position.set(65,-5,0);
 	//cubeMesh[8].position.set(55,0,0);
-	
+	}
+	else
+	{
+		cubeMesh[0].position.set(-30,100,0);
+		cubeMesh[1].position.set(0,100,0);
+		cubeMesh[2].position.set(30,100,0);
+		cubeMesh[3].position.set(60,100,0);
+		cubeMesh[4].position.set(60,75,0);
+		cubeMesh[5].position.set(60,50,0);
+		cubeMesh[6].position.set(60,25,0);
+		cubeMesh[7].position.set(60,0,0);
+	}
 	cubeMesh[0].id = "changetexture";
 	cubeMesh[1].id = "clone";
 	cubeMesh[2].id = "trash";
 	//cubeMesh[3].id = "changetexture";
         //Add child cubes to the scene
-	
     for (var i = 0; i < cubeMesh.length; i++)
 	{
-        selectedItem.add(cubeMesh[i]);
-		//cubeMesh[i].butt
-		//scene.add(cubeMesh[i]);
-		
+        selectedItem.add(cubeMesh[i]);		
 	}
 
   }
@@ -269,7 +278,7 @@ var ContextMenu = function(blueprint3d) {
 			}
 		}
 	
-	//selectedItem.children ={};
+	 selectedItem.children ={};
 	//detachChild();
 	}
 	//$("#object-controls").css("visibility", 'hidden');
