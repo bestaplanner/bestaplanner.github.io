@@ -655,10 +655,13 @@ li#mlog {
     margin-left: 0% !important;
 }
 .navbar-inverse .navbar-toggle {
-    background-color: #1c1e21 !important;
+    background-color: #ffffff !important;
 }
 .navbar-inverse .navbar-nav > li > a{
     border-right: none;
+}
+	.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #000000 !important;
 }
 }
 
@@ -716,10 +719,13 @@ li#mlog {
     margin-left: 0% !important;
 }
 .navbar-inverse .navbar-toggle {
-    background-color: #1c1e21 !important;
+    background-color: #ffffff !important;
 }
 .navbar-inverse .navbar-nav > li > a{
     border-right: none;
+}
+	.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #000000 !important;
 }
 }
 	
