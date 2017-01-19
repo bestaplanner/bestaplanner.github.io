@@ -1,3 +1,4 @@
+<!--https://bestaplanner.github.io/2D_design/-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,8 @@ display:inline-block;
                         src="images/logo.png"
                         style="max-width:70%"></a>
 						
-        </div><span class="glyphicon glyphicon-shopping-cart sh_Cart visible-xs visible-sm pull-right mobile_cart"> <span class="badge">0</span></span>
+        </div>
+		<span class="glyphicon glyphicon-shopping-cart sh_Cart visible-xs visible-sm pull-right mobile_cart"> <span class="badge">0</span></span>
         
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -50,7 +52,7 @@ display:inline-block;
                             <a href="#" class="nav_bar">Save</a>
                         </li>
 						
-                        <li class="dropdown share1">
+                        <!--<li class="dropdown share1">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Share</a>
                     <ul role="menu" class="dropdown-menu share">
                         <li class="p_int"><a href="#"><img src="images/Share_icons/pinterest_grey.png" id="pin"></img></a></li>
@@ -60,7 +62,7 @@ display:inline-block;
                         <li class="email"><a href="#"><img src="images/Share_icons/email_grey.png" id="email"></img></a></li>
                     </ul>
 					
-                </li>
+                </li>-->
 						
                         <li>
                             <a href="#" class="nav_bar">Help</a>
@@ -69,9 +71,10 @@ display:inline-block;
 						<li>
                             <a href="#" class="nav_bar">Print</a>
                         </li>
-						<li class="hidden-md hidden-lg">
+						<!--<li class="hidden-md hidden-lg">
                             <a href="#" class="nav_bar">Login</a>
-                        </li>
+                        </li>-->
+						 <li id="log" style="display: none;"><a href="#" class="Login">Login</a></li>
             </ul>
 			
             <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
@@ -154,10 +157,16 @@ display:inline-block;
 						<button class="btn btn-default btn-lg btn1">
                             <a href="https://bestaplanner.github.io/start_scratch.html" target="_blank"><img src="../images/3d.png" id="3d"></img></a>
                         </button>
+						<a href="#"><img src="images/Share_icons/pinterest_grey.png" id="pin"></img></a>
+						<a><img src="images/Share_icons/facebook_grey.png" id="fb"></img></a>
+						<a href="#"><img src="images/Share_icons/twitter_grey.png" id="twit"></img></a>
+						<a href="#"><img src="images/Share_icons/google_grey.png" id="gs"></img></a>
+						<a href="#"><img src="images/Share_icons/email_grey.png" id="email"></img></a>
+						
 						
 						
 		</div>
-		<div class="col-md-3 hidden-xs">
+		<div class="col-md-3 hidden-xs price">
                 <div class="bg-alt">
 			
 				<div class="glyphicon glyphicon-shopping-cart sh_Cart"></div>
@@ -270,7 +279,7 @@ display:inline-block;
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/black brwon.JPG" class="img-responsive"></a></div>
     </div>
     <div class="item">
-      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/60x20x38 cm.JPG" ></a></div>
+      <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/FR18.JPG" ></a></div>
     </div>
     <div class="item">
       <div class="col-md-2 col-sm-6 col-xs-12"><a href="#" class="thumbnail"><img src="images/thumbnail/white.JPG" ></a></div>
@@ -603,7 +612,7 @@ $('.carousel[data-type="multi"] .item').each(function(){
 
 			</script>
 			<!-- Total Area start-->
-            <div class="col-md-3 hidden-xs">
+            <div class="col-md-3 col-sm-3 hidden-xs">
                 <table class="table">
         
         <tbody>
@@ -631,4 +640,4 @@ $('.carousel[data-type="multi"] .item').each(function(){
        
     </div>
 </body>
-</html>                                		
+</html>                                		                              		
